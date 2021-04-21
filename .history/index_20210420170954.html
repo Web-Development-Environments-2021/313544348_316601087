@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="./jquery-3.4.1.slim.min.js"></script>
+		<script type="text/javascript" src="./app.js"></script>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="lib/css/emoji.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="bar" id="myNavbar">
+			<ul class="list-bar">
+			  <li> <a onclick="show('welcome')"> <i class="fa fa-home"></i> Welcome </a></li>
+			  <li> <a onclick="show('register')"><i class="fa fa-user"></i> Register </a></li>
+			  <li> <a onclick="show('login')"><i class="fa fa-camera-retro"></i> Login </a></li>
+			  <li> <a onclick="show('about')"><i class="fa fa-music"></i> About </a></li>
+			</ul>
+		</div>
+
+		<div class="pages" id="welcome" style = "position: relative; top:20px;" >welcome
+			<button class="button"> Sign in </button>
+			<button class="button"> Sign up </button>
+		</div>
+		<div class="pages" id="register" style="display:none;" height="600" width="600">register</div>
+		<div class="pages" id="login" style="display:none;" height="600" width="600">login</div>
+		<div class="pages" id="about" style="display:none;" height="600" width="600">about</div>
+
+		<div class="pages" id="game" style="display:none;">
+			<div id="score">
+				<label for="lblScore">SCORE:</label>
+				<input id="lblScore" type="text" />
+			</div>
+			<div id="time">
+				<label for="lblTime">TIME:</label>
+				<input id="lblTime" type="text" />
+			</div>
+			<div id="game">
+				<canvas id="canvas" height="600" width="600"></canvas>
+			</div>
+		</div>
+	</body>
+</html>

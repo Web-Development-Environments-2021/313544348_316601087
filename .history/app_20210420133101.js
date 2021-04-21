@@ -170,18 +170,3 @@ function UpdatePosition() {
 		Draw();
 	}
 }
-
-function show(target){
-    hideAllPages();//hide all pages
-    document.getElementById(target).style.display = 'block';//show selected page
-    return false;//cancel page navigation
-}
-
-function hideAllPages(){
-    var pages = document.getElementsByClassName("pages");
-    for(var i = 0; i < pages.length; i++){
-        pages[i].style.display = 'none';
-    }
-}
-
-

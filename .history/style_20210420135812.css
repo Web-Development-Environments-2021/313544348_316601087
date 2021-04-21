@@ -1,0 +1,52 @@
+.bar:hover{
+    border-radius: 20px 20px;
+    transition-duration: 0.3s;
+  }
+
+  #barPic{
+    top: 0;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px 10px;
+    margin-right: 40px;
+  }
+  
+
+li {
+  height: 30px;
+  display: inline;
+  float: left;
+  margin-right: 12px;
+  /* padding: 15px 25px; */
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #c7e6eb;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px rgb(233, 233, 233);
+
+  }
+
+li:hover {  
+  background-color: #d0edee;
+}
+
+li:active{
+  background-color: #d0edee;
+  box-shadow: 0 5px rgb(184, 184, 184);
+  transform: translateY(4px);
+}
+
+li a {
+	display: inline;
+	color: rgb(0, 0, 0);
+	text-align: center;
+	letter-spacing: 2px;
+	padding: 10px ;
+	text-decoration: none;
+	font-family: "Inconsolata", sans-serif;
+  }

@@ -183,5 +183,3 @@ function hideAllPages(){
         pages[i].style.display = 'none';
     }
 }
-
-

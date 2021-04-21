@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="./jquery-3.4.1.slim.min.js"></script>
+		<script type="text/javascript" src="./app.js"></script>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+	</head>
+
+	<body>
+		<div class="bar"  id="myNavbar">
+			<ul class="list-bar">
+			  <li> <a href="#logo" onclick="show('about')"> <i class="fa fa-home"></i> Welcome </a></li>
+			  <li> <a href="#about"><i class="fa fa-user"></i> Register </a></li>
+			  <li> <a href="#logo2"><i class="fa fa-camera-retro"></i> Login </a></li>
+			  <li> <a href="#playlist"><i class="fa fa-music"></i> About </a></li>
+			</ul>
+		</div>
+
+		<div class="pages" id="about" style="display:none;">ABOUT ARTICLE...</div>
+
+
+		<div id="score">
+			<label for="lblScore">SCORE:</label>
+			<input id="lblScore" type="text" />
+		</div>
+		<div id="time">
+			<label for="lblTime">TIME:</label>
+			<input id="lblTime" type="text" />
+		</div>
+		<div id="game">
+			<canvas id="canvas" height="600" width="600"></canvas>
+		</div>
+	</body>
+</html>
