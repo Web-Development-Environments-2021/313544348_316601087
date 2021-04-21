@@ -196,15 +196,15 @@ function showPassword() {
 }
 
 //after submit- not sure it works yet?????????????????????????????????????????
-// $('#submit').click(function() {
-//     var data = $('#basic-form').serializeArray();
-// 	print(data);
-// });
+$('#submit').click(function() {
+    var data = $('#basic-form').serializeArray();
+	print(data);
+});
   
 
 //modal dialog- about
 function openmodal(){
-	var modal = document.getElementById(".modal");
+	var modal = document.getElementById("about");
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
