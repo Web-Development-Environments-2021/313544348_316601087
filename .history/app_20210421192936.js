@@ -185,6 +185,14 @@ function hideAllPages(){
     }
 }
 
+$('#submit').click(function() {
+    var data = $('#myForm').serializeArray();
+    for(i in data){
+        console.log(data[i]);
+    }  
+});
+
+
 // register form- show password
 function showPassword() {
 	var x = document.getElementById("password");
@@ -193,13 +201,7 @@ function showPassword() {
 	} else {
 	  x.type = "password";
 	}
-}
-
-//after submit
-$('#submit').click(function() {
-    var data = $('#basic-form').serializeArray();
-	print(data);
-});
+  }
   
 
 

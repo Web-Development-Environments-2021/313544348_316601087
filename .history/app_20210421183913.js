@@ -185,7 +185,6 @@ function hideAllPages(){
     }
 }
 
-// register form- show password
 function showPassword() {
 	var x = document.getElementById("password");
 	if (x.type === "password") {
@@ -193,13 +192,6 @@ function showPassword() {
 	} else {
 	  x.type = "password";
 	}
-}
-
-//after submit
-$('#submit').click(function() {
-    var data = $('#basic-form').serializeArray();
-	print(data);
-});
-  
+  }
 
 

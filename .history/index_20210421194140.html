@@ -18,12 +18,6 @@
 			}, "Letters and spaces only please");
 		</script>
 		<script>
-			jQuery.validator.addMethod("ContainsAtLeastOneDigitLetter", function (value) 
-			{ 
-				return /[a-z].*[0-9]|[0-9].*[a-z]/i.test(value); 
-			}, 'Password must contain letters and digits');
-		</script>
-		<script>
 			$(document).ready(function() {
 	  	$("#basic-form").validate({
 		rules: {
@@ -40,8 +34,7 @@
 		  },
 		  password: {
 			required: true,
-			minlength: 6,
-			ContainsAtLeastOneDigitLetter: true
+			minlength: 6
 		  },
 		  email: {
 			required: true,
@@ -67,7 +60,7 @@
 		}, 
 		submitHandler: function(form) {
         form.submit();
-  		}
+  }
 	  });
 	});
 	</script>
@@ -145,15 +138,7 @@
 			</form>
   
 		  </div>
-		<div class="modal" id="about" style="display:none; position: fixed; left:80px; top:120px;">about
-			<!-- Modal content -->
-			<div class="modal-content">
-			  <span class="close">&times;</span>
-			  <p>Some text in the Modal..</p>
-			</div>
-		</div>
-
-
+		<div class="pages" id="about" style="display:none; position: fixed; left:80px; top:120px;">about</div>
 
 		<div class="pages" id="game" style="display:none;">
 			<div id="score">

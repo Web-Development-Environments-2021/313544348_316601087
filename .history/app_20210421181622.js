@@ -171,7 +171,6 @@ function UpdatePosition() {
 	}
 }
 
-// page switch
 function show(target){
     hideAllPages();//hide all pages
     document.getElementById(target).style.display = 'block';//show selected page
@@ -185,7 +184,6 @@ function hideAllPages(){
     }
 }
 
-// register form- show password
 function showPassword() {
 	var x = document.getElementById("password");
 	if (x.type === "password") {
@@ -193,13 +191,6 @@ function showPassword() {
 	} else {
 	  x.type = "password";
 	}
-}
-
-//after submit
-$('#submit').click(function() {
-    var data = $('#basic-form').serializeArray();
-	print(data);
-});
-  
+  }
 
 

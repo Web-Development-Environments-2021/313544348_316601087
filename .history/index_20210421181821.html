@@ -9,68 +9,48 @@
 		<link href="lib/css/emoji.css" rel="stylesheet">
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
-		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-		<script>jQuery.validator.addMethod("lettersonly", function(value, element) 
-			{
-			return this.optional(element) || /^[a-z ]+$/i.test(value);
-			}, "Letters and spaces only please");
-		</script>
-		<script>
-			jQuery.validator.addMethod("ContainsAtLeastOneDigitLetter", function (value) 
-			{ 
-				return /[a-z].*[0-9]|[0-9].*[a-z]/i.test(value); 
-			}, 'Password must contain letters and digits');
-		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 		<script>
 			$(document).ready(function() {
-	  	$("#basic-form").validate({
+	  $("#basic-form").validate({
 		rules: {
 		  username : {
-			required: true
-		  },
-		  firstname : {
 			required: true,
-			lettersonly: true
-		  },
-		  lastname : {
-			required: true,
-			lettersonly: true
+			minlength: 3
 		  },
 		  password: {
 			required: true,
-			minlength: 6,
-			ContainsAtLeastOneDigitLetter: true
 		  },
 		  email: {
 			required: true,
 			email: true
 		  },
-		  birthdate: {
-			required: true
+		  weight: {
+			required: {
+			  depends: function(elem) {
+				return $("#age").val() > 50
+			  }
+			},
+			number: true,
+			min: 0
 		  }
 		},
 		messages : {
-		  firstname: {
-			lettersonly: "First Name should be letters only"
+		  username: {
+			minlength: "Name should be at least 3 characters"
 		  },
-		  lastname: {
-			lettersonly: "Last Name should be letters only"
-		  },
-		  password: {
-			minlength: "Password should be at least 6 characters"
+		  age: {
+			required: "Please enter your age",
+			number: "Please enter your age as a numerical value",
+			min: "You must be at least 18 years old"
 		  },
 		  email: {
 			email: "The email should be in the format: abc@domain.tld"
 		  }
-		}, 
-		submitHandler: function(form) {
-        form.submit();
-  		}
+		}
 	  });
 	});
-	</script>
+				</script>
 	</head>
 
 	<body>
@@ -91,32 +71,32 @@
 		<div class="pages" id="register" style="display:none; position: fixed; left:80px; top:120px;">register
 			<form id="basic-form" action="" method="post">
 				<p>
-				  <label for="username">Username </label>
+				  <label for="username">Username <span>(required, at least 3 characters)</span></label>
 				  <input id="username" name="username">
 				</p>
 			  	<p>
-				  <label for="password">Password </label>
-				  <input type="password" id="password" name="password"><br><br>
+				  <label for="password">Password <span>(minimum 18)</span></label>
+				  <input type="password" id="password" name="password">
 				  <input type="checkbox" onclick="showPassword()">Show Password
 				</p>
 				<p>
-					<label for="firstname">First Name </label>
+					<label for="firstname">First Name <span>(minimum 18)</span></label>
 					<input id="firstname" name="firstname">
 				</p>
 				<p>
-					<label for="lastname">Last Name </label>
+					<label for="lastname">Last Name <span>(minimum 18)</span></label>
 					<input id="lastname" name="lastname">
 				</p>
 				<p>
-				  <label for="email">E-Mail </label>
+				  <label for="email">E-Mail <span>(required)</span></label>
 				  <input id="email" name="email">
 				</p>
 				<p>
-					<label for="birthdate">Birth date</label>
-					<input type="date" id="birthdate" name="birthdate">
+					<label for="start">birth date</label>
+					<input type="date" id="start" name="trip-start">
 				</p>
 				<p>
-				  <input class="submit" type="submit" value="SUBMIT" id="submit">
+				  <input class="submit" type="submit" value="SUBMIT">
 				</p>
 			</form>
 		</div>
@@ -145,15 +125,7 @@
 			</form>
   
 		  </div>
-		<div class="modal" id="about" style="display:none; position: fixed; left:80px; top:120px;">about
-			<!-- Modal content -->
-			<div class="modal-content">
-			  <span class="close">&times;</span>
-			  <p>Some text in the Modal..</p>
-			</div>
-		</div>
-
-
+		<div class="pages" id="about" style="display:none; position: fixed; left:80px; top:120px;">about</div>
 
 		<div class="pages" id="game" style="display:none;">
 			<div id="score">

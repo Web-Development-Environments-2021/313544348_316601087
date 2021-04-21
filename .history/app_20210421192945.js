@@ -193,13 +193,7 @@ function showPassword() {
 	} else {
 	  x.type = "password";
 	}
-}
-
-//after submit
-$('#submit').click(function() {
-    var data = $('#basic-form').serializeArray();
-	print(data);
-});
+  }
   
 
 

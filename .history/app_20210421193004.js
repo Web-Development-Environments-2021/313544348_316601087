@@ -197,8 +197,10 @@ function showPassword() {
 
 //after submit
 $('#submit').click(function() {
-    var data = $('#basic-form').serializeArray();
-	print(data);
+    var data = $('#myForm').serializeArray();
+    for(i in data){
+        console.log(data[i]);
+    }  
 });
   
 

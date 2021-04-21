@@ -18,58 +18,52 @@
 			}, "Letters and spaces only please");
 		</script>
 		<script>
-			jQuery.validator.addMethod("ContainsAtLeastOneDigitLetter", function (value) 
-			{ 
-				return /[a-z].*[0-9]|[0-9].*[a-z]/i.test(value); 
-			}, 'Password must contain letters and digits');
-		</script>
-		<script>
-			$(document).ready(function() {
-	  	$("#basic-form").validate({
-		rules: {
-		  username : {
-			required: true
-		  },
-		  firstname : {
-			required: true,
-			lettersonly: true
-		  },
-		  lastname : {
-			required: true,
-			lettersonly: true
-		  },
-		  password: {
-			required: true,
-			minlength: 6,
-			ContainsAtLeastOneDigitLetter: true
-		  },
-		  email: {
-			required: true,
-			email: true
-		  },
-		  birthdate: {
-			required: true
-		  }
-		},
-		messages : {
-		  firstname: {
-			lettersonly: "First Name should be letters only"
-		  },
-		  lastname: {
-			lettersonly: "Last Name should be letters only"
-		  },
-		  password: {
-			minlength: "Password should be at least 6 characters"
-		  },
-		  email: {
-			email: "The email should be in the format: abc@domain.tld"
-		  }
-		}, 
-		submitHandler: function(form) {
-        form.submit();
-  		}
-	  });
-	});
+			function validationCheck(){
+				$(document).ready(function() {
+				$("#basic-form").validate({
+				rules: {
+				username : {
+					required: true
+				},
+				firstname : {
+					required: true,
+					lettersonly: true
+				},
+				lastname : {
+					required: true,
+					lettersonly: true
+				},
+				password: {
+					required: true,
+					minlength: 6
+				},
+				email: {
+					required: true,
+					email: true
+				},
+				birthdate: {
+					required: true,
+					Date: true
+				}
+				},
+				messages : {
+				firstname: {
+					lettersonly: "First Name should be letters only"
+				},
+				lastname: {
+					lettersonly: "Last Name should be letters only"
+				},
+				password: {
+					minlength: "Password should be at least 6 characters"
+					
+				},
+				email: {
+					email: "The email should be in the format: abc@domain.tld"
+				}
+				}
+			});
+			});
+		}
 	</script>
 	</head>
 
@@ -112,11 +106,11 @@
 				  <input id="email" name="email">
 				</p>
 				<p>
-					<label for="birthdate">Birth date</label>
+					<label for="start">birth date</label>
 					<input type="date" id="birthdate" name="birthdate">
 				</p>
 				<p>
-				  <input class="submit" type="submit" value="SUBMIT" id="submit">
+				  <input class="submit" type="submit" value="SUBMIT" onclick="validationCheck()">
 				</p>
 			</form>
 		</div>
@@ -145,15 +139,7 @@
 			</form>
   
 		  </div>
-		<div class="modal" id="about" style="display:none; position: fixed; left:80px; top:120px;">about
-			<!-- Modal content -->
-			<div class="modal-content">
-			  <span class="close">&times;</span>
-			  <p>Some text in the Modal..</p>
-			</div>
-		</div>
-
-
+		<div class="pages" id="about" style="display:none; position: fixed; left:80px; top:120px;">about</div>
 
 		<div class="pages" id="game" style="display:none;">
 			<div id="score">
