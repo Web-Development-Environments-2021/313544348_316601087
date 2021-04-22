@@ -51,7 +51,6 @@ text-decoration: none;
 font-family: "Inconsolata", sans-serif;
 }
 
-/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -92,9 +91,10 @@ font-family: "Inconsolata", sans-serif;
   to {top:0; opacity:1}
 }
 
+
 /* The Close Button */
 .close {
-  color: white;
+  color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -102,21 +102,7 @@ font-family: "Inconsolata", sans-serif;
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #c7e6eb;
-  color: black;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #c7e6eb;
-  color: black;
 }

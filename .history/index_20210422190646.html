@@ -79,7 +79,7 @@
 			  <li> <a onclick="show('welcome')"> <i class="fa fa-home"></i> Welcome </a></li>
 			  <li> <a onclick="show('register')"><i class="fa fa-user"></i> Register </a></li>
 			  <li> <a onclick="show('login')"><i class="fa fa-camera-retro"></i> Login </a></li>
-			  <li> <a id="openModal"><i class="fa fa-music"></i> About </a></li>
+			  <li> <a onclick="document.getElementById('about').style.display='block'"><i class="fa fa-music"></i> About </a></li>
 			</ul>
 		</div>
 
@@ -145,22 +145,14 @@
 			</form>
 		</div>
 
-		<!-- The Modal -->
-		<div id="about" class="modal">
+		<div id="myModal" class="modal">
+
+			<!-- Modal content -->
 			<div class="modal-content">
-			<div class="modal-header">
-				<span class="close" onclick="document.getElementById('about').style.display='none'">&times;</span>
-				<h2>Modal Header</h2>
+			  <span class="close">&times;</span>
+			  <p>Some text in the Modal..</p>
 			</div>
-			<div class="modal-body">
-				<p>Some text in the Modal Body</p>
-				<p>Some other text...</p>
-			</div>
-			<div class="modal-footer">
-				<h3>Modal Footer</h3>
-			</div>
-			</div>
-			<script type = "text/javascript" src="app.js"></script>  
+		  
 		</div>
 
 

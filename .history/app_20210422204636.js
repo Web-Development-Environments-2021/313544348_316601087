@@ -216,6 +216,13 @@ function showPassword() {
 		modal.style.display = "none";
 	}
 	}
+
+	window.keysDown = function(event) {
+		if (event.key === 'Escape') {
+			modal.style.display = "none";
+		}
+		}
+
 	// When the user clicks on Esc key-> close the modal
 	var modal = document.querySelector('.modal')
 	window.addEventListener('keydown', function (event) {

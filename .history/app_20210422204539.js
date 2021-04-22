@@ -218,6 +218,7 @@ function showPassword() {
 	}
 	// When the user clicks on Esc key-> close the modal
 	var modal = document.querySelector('.modal')
+
 	window.addEventListener('keydown', function (event) {
 	if (event.key === 'Escape') {
 		modal.style.display = 'none'

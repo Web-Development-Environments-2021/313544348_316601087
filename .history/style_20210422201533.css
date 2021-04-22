@@ -110,7 +110,7 @@ font-family: "Inconsolata", sans-serif;
 .modal-header {
   padding: 2px 16px;
   background-color: #c7e6eb;
-  color: black;
+  color: white;
 }
 
 .modal-body {padding: 2px 16px;}
@@ -118,5 +118,5 @@ font-family: "Inconsolata", sans-serif;
 .modal-footer {
   padding: 2px 16px;
   background-color: #c7e6eb;
-  color: black;
+  color: white;
 }
