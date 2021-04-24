@@ -6,7 +6,6 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
-var listOfUsers = [['k','k']];
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -186,165 +185,6 @@ function hideAllPages(){
     }
 }
 
-//validation with jquery
-$(document).ready(function() {
-	// register
-	$("#register_form").validate({
-	rules: {
-		username : {
-		required: true,
-		checkFreeName: true
-		},
-
-		password: {
-		required: true,
-		minlength: 6,
-		ContainsAtLeastOneDigitLetter: true
-		},
-
-		firstname : {
-		required: true,
-		lettersonly: true
-		},
-		lastname : {
-		required: true,
-		lettersonly: true
-		},
-	
-		email: {
-		required: true,
-		email: true
-		},
-		birthdate: {
-		required: true
-		}
-	},
-	messages : {
-		username:{
-		checkFreeName: "User name is not available"
-
-		},
-		password: {
-			ContainsAtLeastOneDigitLetter: "Password must contain letters and digits",
-			minlength: "Password should be at least 6 characters"
-			},
-
-		firstname: {
-		lettersonly: "First Name should be letters only"
-		},
-		lastname: {
-		lettersonly: "Last Name should be letters only"
-		},
-	
-		email: {
-		email: "The email should be in the format: abc@domain.tld"
-		}
-	}, 
-	submitHandler: function() {
-		submit();
-		show('login');
-		let form = $("#register_form");
-		form[0].reset();
-		}
-	});
-//login
-	$("#login_form").validate({
-		rules: {
-			username_login : {
-			required: true,
-			},
-	
-			password_login: {
-			required: true,
-			passwordValid: true
-			},
-		},
-		messages : {
-			username_login:{
-			},
-			password_login: {
-			passwordValid: "Invalid password for this user"
-
-			},
-		}, 
-		submitHandler: function() {
-			alert('hello');
-			show('configuration');
-			let form = $("#login_form");
-			form[0].reset();
-			}
-		});
-	});
-
-$(function() {
-
-		$.validator.addMethod("passwordValid", function() {
-			var username = document.getElementById("username_login").value;
-			var password = document.getElementById("password_login").value;
-			var storagePass = "";
-			for (var i = 0; i < listOfUsers.length; i++) {
-				if (listOfUsers[i][0] == username) {
-					if (listOfUsers[i][1] == password) {
-						storagePass = listOfUsers[i][1];
-						break;
-					}
-				}
-			}
-			if (storagePass=="") {
-				return false;
-			}
-				return true;
-			
-		});
-		
-
-	$.validator.addMethod("lettersonly", function(value, element)
-	{
-	if(this.optional(element) || /^[a-z ]+$/i.test(value)){
-		return true;
-	}
-	return false;
-	});
-
-	$.validator.addMethod("checkFreeName", function(value){
-		for (var i = 0; i < listOfUsers.length; i++) {
-			if (listOfUsers[i][0] == value) {
-				return false;
-			}
-			}
-	
-		return true;
-	
-
-	});
-
-	$.validator.addMethod("ContainsAtLeastOneDigitLetter", function(value) 
-	{ 
-	if(/[a-z].[0-9]|[0-9].[a-z]/i.test(value)){
-		return true;
-	} 
-	return false;
-	});
-});
-
-
-
-
-function submit(){
-	var usernameInput = document.getElementById("username").value;
-	var passwordInput = document.getElementById("password").value;
-	listOfUsers.push([usernameInput, passwordInput]);
-	alert('Succesfully registered');
-}
-
-function cancleReg(){
-	show('welcome');
-			let form = $("#login_form");
-			form[0].reset();
-}
-
-
-
 // register form- show password
 function showPassword() {
 	var x = document.getElementById("password");
@@ -384,12 +224,13 @@ function showPassword() {
 	}
 	})
 
-function chosenNumberBalls(val) {
-	document.getElementById("numberballs").innerHTML = val; 
+function chosenNumber(val) {
+	document.getElementById("number").innerHTML = val; 
 }
 
-function chosenNumberMonsters(val) {
-	document.getElementById("numbermonsters").innerHTML = val;
-}
+
+	t.addEventListener('keydown', function (event) {
+	  document.getElementById('fired').value = e.type + ' fired';
+	});
 
 	

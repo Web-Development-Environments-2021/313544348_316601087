@@ -6,7 +6,6 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
-var listOfUsers = [['k','k']];
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -269,7 +268,7 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			show('configuration');
+			show('register');
 			let form = $("#login_form");
 			form[0].reset();
 			}
@@ -334,7 +333,7 @@ function submit(){
 	var usernameInput = document.getElementById("username").value;
 	var passwordInput = document.getElementById("password").value;
 	listOfUsers.push([usernameInput, passwordInput]);
-	alert('Succesfully registered');
+	alert('Seccesfully registered');
 }
 
 function cancleReg(){

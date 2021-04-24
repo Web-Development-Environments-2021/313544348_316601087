@@ -269,7 +269,7 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			show('configuration');
+			show('register');
 			let form = $("#login_form");
 			form[0].reset();
 			}
@@ -335,6 +335,7 @@ function submit(){
 	var passwordInput = document.getElementById("password").value;
 	listOfUsers.push([usernameInput, passwordInput]);
 	alert('Succesfully registered');
+	show('configuration')
 }
 
 function cancleReg(){

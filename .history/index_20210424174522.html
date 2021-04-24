@@ -29,41 +29,41 @@
 			<button class="button" onclick="show('login')"> Sign in </button>
 			<button class="button" onclick="show('register')"> Sign up </button>
 		</div>
-
 		<!-- register form -->
-		<div class="pages" id="register" style="display:none; position: fixed; left:80px; top:120px;">register
-			<form id="register_form">
-				<p>
-				<label for="username">Username </label>
-				<input id="username" name="username">
-				</p>
-				<p>
-				<label for="password">Password </label>
-				<input type="password" id="password" name="password"><br><br>
-				<input type="checkbox" onclick="showPassword()">Show Password
-				</p>
-				<p>
-				<label for="firstname">First Name </label>
-				<input id="firstname" name="firstname">
-				</p>
-				<p>
-				<label for="lastname">Last Name </label>
-				<input id="lastname" name="lastname">
-				</p>
-				<p>
-				<label for="email">E-Mail </label>
-				<input id="email" name="email">
-				</p>
-				<p>
-				<label for="birthdate">Birth date</label>
-				<input type="date" id="birthdate" name="birthdate">
-				</p>
-				<p>
-				<input type="submit" value="Submit" id="register">
-				<input type="button" value="Cancel" id="register" onclick="cancleReg()">
 
-				</p>
-			</form>
+	<div class="pages" id="register" style="display:none; position: fixed; left:80px; top:120px;">register
+		<form id="register_form">
+			<p>
+			<label for="username">Username </label>
+			<input id="username" name="username">
+			</p>
+			<p>
+			<label for="password">Password </label>
+			<input type="password" id="password" name="password"><br><br>
+			<input type="checkbox" onclick="showPassword()">Show Password
+			</p>
+			<p>
+			<label for="firstname">First Name </label>
+			<input id="firstname" name="firstname">
+			</p>
+			<p>
+			<label for="lastname">Last Name </label>
+			<input id="lastname" name="lastname">
+			</p>
+			<p>
+			<label for="email">E-Mail </label>
+			<input id="email" name="email">
+			</p>
+			<p>
+			<label for="birthdate">Birth date</label>
+			<input type="date" id="birthdate" name="birthdate">
+			</p>
+			<p>
+			<input type="submit" value="Submit" id="register">
+			<input type="button" value="Cancel" id="register" onclick="cancleReg()">
+
+			</p>
+		</form>
 		</div>
 
 		<!-- login form -->
@@ -144,7 +144,7 @@
 					<input type="range" min="1" max="4" oninput="chosenNumberMonsters(this.value)">                             
 					<p id="numbermonsters"></p>
 				</div>
-				<button onclick="show('game')">Let's start!</button>
+				<button>Let's start!</button>
 			</form>
 		</div>
 

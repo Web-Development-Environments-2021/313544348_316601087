@@ -269,7 +269,7 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			show('configuration');
+			show('register');
 			let form = $("#login_form");
 			form[0].reset();
 			}
