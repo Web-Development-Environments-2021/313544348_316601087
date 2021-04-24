@@ -109,19 +109,18 @@
 			<form id= "from1">
 				<div>Choose your Buttons: 
 					<label for="right">Right key:</label>
-					<input type="text" id="right" autocomplete="off" value="Right" onkeydown="setFitKey('right', event)" maxlength="1">
+					<input type="text" id="right" name="right">
 					<label for="right">Left key:</label>
-					<input type="text" id="left" autocomplete="off" value="Left" onkeydown="setFitKey('left', event)" maxlength="1">
+					<input type="text" id="left" name="left">
 					<label for="up">Up key:</label>
-					<input type="text" id="up" autocomplete="off" value="Up" onkeydown="setFitKey('up', event)" maxlength="1">
+					<input type="text" id="up" name="up">
 					<label for="down">Down key:</label>
-					<input type="text" id="down" autocomplete="off" value="Down" onkeydown="setFitKey('down', event)" maxlength="1">
+					<input type="text" id="down" name="down">
 				</div>
-
 				<br><br>
 				<div>
 					<label for="ballsquantity">Choose number of balls:(number between 50-90)</label>
-					<input id = "balls" type="range" min="50" max="90" oninput="chosenNumberBalls(this.value)">                             
+					<input type="range" min="50" max="90" oninput="chosenNumberBalls(this.value)">                             
 					<p id="numberballs"></p>
 				</div>
 				<br><br>
@@ -142,11 +141,11 @@
 				</div>
 				<div>
 					<label for="monstersquantity">Choose number of monsters:(number between 1-4)</label>
-					<input id = "monsters" type="range" min="1" max="4" oninput="chosenNumberMonsters(this.value)">                             
+					<input type="range" min="1" max="4" oninput="chosenNumberMonsters(this.value)">                             
 					<p id="numbermonsters"></p>
 				</div>
-				<input type="button" value="fill form randomly" onclick="random()">
-				<input type="button" value="Let's start!" onclick="show('game')">
+				<button onclick="random()">fill form randomly</button>
+				<button onclick="show('game')">Let's start!</button>
 			</form>
 		</div>
 
