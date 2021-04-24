@@ -7,6 +7,10 @@ var start_time;
 var time_elapsed;
 var interval;
 var listOfUsers = [['k','k']];
+var leftArrow = 37;
+var rightArrow = 39;
+var upArrow = 38;
+var downArrow = 40;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -84,16 +88,16 @@ function findRandomEmptyCell(board) {
 }
 
 function GetKeyPressed() {
-	if (keysDown[38]) {
+	if (keysDown[upArrow]) {
 		return 1;
 	}
-	if (keysDown[40]) {
+	if (keysDown[downArrow]) {
 		return 2;
 	}
-	if (keysDown[37]) {
+	if (keysDown[leftArrow]) {
 		return 3;
 	}
-	if (keysDown[39]) {
+	if (keysDown[rightArrow]) {
 		return 4;
 	}
 }
@@ -170,20 +174,6 @@ function UpdatePosition() {
 	} else {
 		Draw();
 	}
-}
-
-// page switch
-function show(target){
-    hideAllPages();//hide all pages
-    document.getElementById(target).style.display = 'block';//show selected page
-    return false;//cancel page navigation
-}
-
-function hideAllPages(){
-    var pages = document.getElementsByClassName("pages");
-    for(var i = 0; i < pages.length; i++){
-        pages[i].style.display = 'none';
-    }
 }
 
 //validation with jquery
@@ -327,7 +317,19 @@ $(function() {
 	});
 });
 
+// page switch
+function show(target){
+    hideAllPages();//hide all pages
+    document.getElementById(target).style.display = 'block';//show selected page
+    return false;//cancel page navigation
+}
 
+function hideAllPages(){
+    var pages = document.getElementsByClassName("pages");
+    for(var i = 0; i < pages.length; i++){
+        pages[i].style.display = 'none';
+    }
+}
 
 
 function submit(){
@@ -391,5 +393,41 @@ function chosenNumberBalls(val) {
 function chosenNumberMonsters(val) {
 	document.getElementById("numbermonsters").innerHTML = val;
 }
+
+function random(){
+
+	document.getElementById('right').value =0;
+	document.getElementById('left').value =0;
+	document.getElementById('up').value =0;
+	document.getElementById('down').value =0;
+	document.getElementById('balls').value = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
+	document.getElementById('color5').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+	document.getElementById('color15').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+	document.getElementById('color25').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+	document.getElementById('time').value = Math.floor(Math.random() * (1000 - 60 + 1) ) + 60;;
+	document.getElementById('monsters').value = Math.floor(Math.random() * (4 - 1 + 1) ) + 1;
+}
+
+// set keyboard User
+function setFitKey(direction, event){
+	if (direction == 'left') {
+		if(event.keyCode == 37){
+			document.getElementById('left').value = 'leftArrow';
+		}
+		else{
+			leftArrow = event.keyCode;
+		}
+	}
+	if (direction == 'right') {
+		rightArrow = event.keyCode;
+	}
+	if (direction == 'up') {
+		upArrow = event.keyCode;
+	}
+	if (direction == 'down') {
+		downArrow = event.keyCode;
+	}
+}
+
 
 	
