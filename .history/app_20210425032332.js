@@ -93,7 +93,7 @@ function Start() {
 	while (food_25_points_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
 		board[emptyCell[0]][emptyCell[1]] = 25;
-		food_25_points_remain--;
+		food_25_points_remain
 		food_remain--;
 	}
 	keysDown = {};

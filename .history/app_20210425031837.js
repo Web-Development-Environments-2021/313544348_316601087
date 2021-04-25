@@ -51,21 +51,8 @@ function Start() {
 			} else {
 				var randomNum = Math.random();
 				if (randomNum <= (1.0 * food_remain) / cnt) {
-					if(food_5_points_remain > 0){
-						food_5_points_remain--;
-						board[i][j] = 5;
-						food_remain--;
-					}
-					else if(food_15_points_remain > 0){
-						food_15_points_remain--;
-						board[i][j] = 15;
-						food_remain--;
-					}
-					else{
-						food_25_points_remain--;
-						board[i][j] = 25;
-						food_remain--;
-					}
+					food_remain--;
+					board[i][j] = 1;
 				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) {
 					shape.i = i;
 					shape.j = j;
@@ -78,22 +65,9 @@ function Start() {
 			}
 		}
 	}
-	while (food_5_points_remain > 0) {
+	while (food_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
-		board[emptyCell[0]][emptyCell[1]] = 5;
-		food_5_points_remain--;
-		food_remain--;
-	}
-	while (food_15_points_remain > 0) {
-		var emptyCell = findRandomEmptyCell(board);
-		board[emptyCell[0]][emptyCell[1]] = 15;
-		food_15_points_remain--;
-		food_remain--;
-	}
-	while (food_25_points_remain > 0) {
-		var emptyCell = findRandomEmptyCell(board);
-		board[emptyCell[0]][emptyCell[1]] = 25;
-		food_25_points_remain--;
+		board[emptyCell[0]][emptyCell[1]] = 1;
 		food_remain--;
 	}
 	keysDown = {};
@@ -158,23 +132,10 @@ function Draw() {
 				context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
 				context.fillStyle = "black"; //color
 				context.fill();
-			} else if (board[i][j] == 5) {
-				//color5
+			} else if (board[i][j] == 1) {
 				context.beginPath();
 				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
 				context.fillStyle = document.getElementById("color5").value; //color
-				context.fill();
-			} else if (board[i][j] == 15) {
-				//color15
-				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
-				context.fillStyle = document.getElementById("color15").value; //color
-				context.fill();
-			} else if (board[i][j] == 25) {
-				//color25
-				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
-				context.fillStyle = document.getElementById("color25").value; //color
 				context.fill();
 			} else if (board[i][j] == 4) {
 				context.beginPath();
@@ -209,8 +170,8 @@ function UpdatePosition() {
 			shape.i++;
 		}
 	}
-	if (board[shape.i][shape.j] == 5 || board[shape.i][shape.j] == 15 || board[shape.i][shape.j] == 25) {
-		score = score + board[shape.i][shape.j];
+	if (board[shape.i][shape.j] == 1) {
+		score++;
 	}
 	board[shape.i][shape.j] = 2;
 	var currentTime = new Date();

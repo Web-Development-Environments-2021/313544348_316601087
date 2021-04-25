@@ -93,7 +93,7 @@ function Start() {
 	while (food_25_points_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
 		board[emptyCell[0]][emptyCell[1]] = 25;
-		food_25_points_remain--;
+		food_25_points_remain
 		food_remain--;
 	}
 	keysDown = {};
@@ -209,8 +209,8 @@ function UpdatePosition() {
 			shape.i++;
 		}
 	}
-	if (board[shape.i][shape.j] == 5 || board[shape.i][shape.j] == 15 || board[shape.i][shape.j] == 25) {
-		score = score + board[shape.i][shape.j];
+	if (board[shape.i][shape.j] == 1) {
+		score++;
 	}
 	board[shape.i][shape.j] = 2;
 	var currentTime = new Date();
