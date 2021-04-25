@@ -447,10 +447,10 @@ function chosenNumberMonsters(val) {
 }
 
 function random(){
-	document.getElementById('right').value = "ArrowRight"; 
-	document.getElementById('left').value = "ArrowLeft";
-	document.getElementById('up').value = "ArrowUp";
-	document.getElementById('down').value = "ArrowDown";
+	document.getElementById('right').value = 
+	document.getElementById('left').value = 
+	document.getElementById('up').value = 
+	document.getElementById('down').value = 
 	document.getElementById('color5').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color15').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color25').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);

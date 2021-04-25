@@ -23,35 +23,6 @@ $(document).ready(function() {
 	var slider2 = document.getElementById("monsters");
 	var output2 = document.getElementById("numbermonsters");
 	output2.innerHTML = slider2.value;
-
-	// open and close modal
-	//get modal
-	var modal = document.getElementById("about");
-	//get openModal from menu
-	var btn = document.getElementById("openModal");
-	//get close buttom X
-	var span = document.getElementsByClassName("close")[0];
-	// When the user clicks the openModal-> open the modal 
-	btn.onclick = function() {
-	modal.style.display = "block";
-	}
-	// When the user clicks on <span> (x)-> close the modal
-	span.onclick = function() {
-	modal.style.display = "none";
-	}
-	// When the user clicks anywhere outside of the modal-> close the modal
-	window.onclick = function(event) {
-	if (event.target == modal) {
-		modal.style.display = "none";
-	}
-	}
-	// When the user clicks on Esc key-> close the modal
-	var modal = document.querySelector('.modal')
-	window.addEventListener('keydown', function (event) {
-	if (event.key === 'Escape') {
-		modal.style.display = 'none'
-	}
-	})
 });
 
 function Start() {
@@ -447,10 +418,6 @@ function chosenNumberMonsters(val) {
 }
 
 function random(){
-	document.getElementById('right').value = "ArrowRight"; 
-	document.getElementById('left').value = "ArrowLeft";
-	document.getElementById('up').value = "ArrowUp";
-	document.getElementById('down').value = "ArrowDown";
 	document.getElementById('color5').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color15').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color25').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
