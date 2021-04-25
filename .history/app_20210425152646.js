@@ -250,15 +250,7 @@ function Draw() {
 				context.rect(center.x - 30, center.y - 30, 60, 60);
 				context.fillStyle = "grey"; //color
 				context.fill();
-			}// } else if (board[i][j] == 6) {
-			// 	context.drawImage(pic_pinki, center.x-30, center.y-30 ,60,60);
-			// } else if (board[i][j] == 7) {
-			// 	context.drawImage(pic_redi, center.x-30, center.y-30 ,60,60);
-			// } else if (board[i][j] == 8) {
-			// 	context.drawImage(pic_bluei, center.x-30, center.y-30 ,60,60);
-			// } else if (board[i][j] == 9) {
-			// 	context.drawImage(pic_yellowi, center.x-30, center.y-30 ,60,60);
-			// }
+			}
 		}
 	}
 }

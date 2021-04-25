@@ -11,19 +11,6 @@ var leftArrow = 37;
 var rightArrow = 39;
 var upArrow = 38;
 var downArrow = 40;
-var pinki = new Object();
-var bluei = new Object();
-var yellowi = new Object();
-var redi = new Object();
-// var ghosts = [pinki, bluei, redi, yellowi];
-// var pic_pinki = new Image();
-// pic_pinki.src('Image/pink.png');
-// var pic_redi = new Image();
-// pic_redi.src('Image/redi.png');
-// var pic_bluei = new Image();
-// pic_bluei.src('Image/Bluei.png');
-// var pic_yellowi = Image();
-// pic_yellowi.src('Image/yellowi.png');
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -138,32 +125,6 @@ function Start() {
 		food_25_points_remain--;
 		food_remain--;
 	}
-
-	// for (var x = 0; x < ghosts_amount; x++) {
-		// 		if(x==0){
-		// 			pinki.i = 1;
-		// 			pinki.j = 1;
-		// 			board[1][1] = 6;
-		// 		}
-		// 		if(x==1){
-		// 			redi.i = 1;
-		// 			redi.j = 10;
-		// 			board[1][10] = 7;
-		// 		}
-		// 		if(x==3){
-		// 			bluei.i = 10;
-		// 			bluei.j = 1;
-		// 			board[10][1] = 8;
-		// 		}
-		// 		if(x==4){
-		// 			yellowi.i = 10;
-		// 			yellowi.j = 10;
-		// 			board[10][10] = 9;
-		// 		}
-			
-		// }
-
-
 	keysDown = {};
 	addEventListener(
 		"keydown",
@@ -228,11 +189,27 @@ function Draw() {
 				context.fill();
 			} else if (board[i][j] == 5) {
 				//color5
+				// context.beginPath();
+				// context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
+				// context.fillStyle = document.getElementById("color5").value; //color
+				// context.fill();
+				this.borderCol = "black";
+				this.bodyCol = "green";
+				this.x = x;
+				this.y = y;
+				this.width = width;
+				this.height = height;
+				this.path = []; 
 				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
-				context.fillStyle = document.getElementById("color5").value; //color
+				context.fillStyle = ghostsScared ? "blue" : this.bodyCol;
+				context.arc(this.x , this.y, this.width, Math.PI, 2* Math.PI);
+				context.lineTo(this.x + this.width, this.y + this.height);
+				context.arc(this.x + this.width / 2, this.y + this.height, this.width * 0.5, 0, Math.PI);
+				context.arc(this.x + this.width / 2 - this.width , this.y + this.height, this.width * 0.5, 0, Math.PI);
+				context.closePath();
 				context.fill();
-				
+				context.strokeStyle = this.borderCol;
+				context.stroke();
 			} else if (board[i][j] == 15) {
 				//color15
 				context.beginPath();
@@ -250,15 +227,7 @@ function Draw() {
 				context.rect(center.x - 30, center.y - 30, 60, 60);
 				context.fillStyle = "grey"; //color
 				context.fill();
-			}// } else if (board[i][j] == 6) {
-			// 	context.drawImage(pic_pinki, center.x-30, center.y-30 ,60,60);
-			// } else if (board[i][j] == 7) {
-			// 	context.drawImage(pic_redi, center.x-30, center.y-30 ,60,60);
-			// } else if (board[i][j] == 8) {
-			// 	context.drawImage(pic_bluei, center.x-30, center.y-30 ,60,60);
-			// } else if (board[i][j] == 9) {
-			// 	context.drawImage(pic_yellowi, center.x-30, center.y-30 ,60,60);
-			// }
+			}
 		}
 	}
 }
