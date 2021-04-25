@@ -386,8 +386,6 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			const inputs = document.querySelectorAll('input.configBtn');
-			inputs.forEach(input => input.disabled = false);
 			show('configuration');
 			let form = $("#login_form");
 			form[0].reset();
@@ -466,6 +464,8 @@ function submit(){
 	var passwordInput = document.getElementById("password").value;
 	listOfUsers.push([usernameInput, passwordInput]);
 	alert('Succesfully registered');
+	// document.getElementById("balls").disabled = false;
+	// document.getElementById("monsters").disabled = true;
 }
 
 function cancleReg(){
@@ -497,9 +497,9 @@ function chosenNumberMonsters(val) {
 }
 
 function random(){
-	document.getElementById('right').value = "ArrowRight"; 
-	document.getElementById('left').value = "ArrowLeft";
-	document.getElementById('up').value = "ArrowUp";
+	document.getElementById('right').innerHTML = "ArrowRight"; 
+	document.getElementById('left').innerHTML = "ArrowLeft";
+	document.getElementById('up').innerHTML = "ArrowUp";
 	document.getElementById('down').value = "ArrowDown";
 	document.getElementById('color5').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color15').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
@@ -533,8 +533,8 @@ function setFitKey(direction, event){
 
 function updateAttributes(target){
 	document.getElementById(target).style.display = 'block';//show selected page
-	const inputs = document.querySelectorAll('input.configBtn');
-	inputs.forEach(input => input.disabled = true);
+	$(":range").rangeinput();
+	$('#fieldset1 *').unbind(); 
 	Start();
 }
 

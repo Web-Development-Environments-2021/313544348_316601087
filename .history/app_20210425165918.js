@@ -386,8 +386,20 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			const inputs = document.querySelectorAll('input.configBtn');
-			inputs.forEach(input => input.disabled = false);
+			document.getElementById('right').disabled = false; 
+			document.getElementById('left').disabled = false;
+			document.getElementById('up').disabled = false;
+			document.getElementById('down').disabled = false;
+			document.getElementById('color5').disabled = false;
+			document.getElementById('color15').disabled = false;
+			document.getElementById('color25').disabled = false;
+			document.getElementById('time').disabled = false;
+			document.getElementById('balls').disabled = false;
+			document.getElementById('numberballs').disabled = false; 
+			document.getElementById('monsters').disabled = false;
+			document.getElementById('numbermonsters').disabled = false; 
+			document.getElementById("button1").disabled = false;
+			document.getElementById("button2").disabled = false;
 			show('configuration');
 			let form = $("#login_form");
 			form[0].reset();

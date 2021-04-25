@@ -386,8 +386,6 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			const inputs = document.querySelectorAll('input.configBtn');
-			inputs.forEach(input => input.disabled = false);
 			show('configuration');
 			let form = $("#login_form");
 			form[0].reset();
@@ -466,6 +464,8 @@ function submit(){
 	var passwordInput = document.getElementById("password").value;
 	listOfUsers.push([usernameInput, passwordInput]);
 	alert('Succesfully registered');
+	// document.getElementById("balls").disabled = false;
+	// document.getElementById("monsters").disabled = true;
 }
 
 function cancleReg(){
@@ -533,8 +533,8 @@ function setFitKey(direction, event){
 
 function updateAttributes(target){
 	document.getElementById(target).style.display = 'block';//show selected page
-	const inputs = document.querySelectorAll('input.configBtn');
-	inputs.forEach(input => input.disabled = true);
+	// $(":range").rangeinput();
+	// $('#fieldset1 *').unbind(); /
 	Start();
 }
 

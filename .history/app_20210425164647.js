@@ -386,8 +386,6 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			const inputs = document.querySelectorAll('input.configBtn');
-			inputs.forEach(input => input.disabled = false);
 			show('configuration');
 			let form = $("#login_form");
 			form[0].reset();
@@ -466,6 +464,8 @@ function submit(){
 	var passwordInput = document.getElementById("password").value;
 	listOfUsers.push([usernameInput, passwordInput]);
 	alert('Succesfully registered');
+	// document.getElementById("balls").disabled = false;
+	// document.getElementById("monsters").disabled = true;
 }
 
 function cancleReg(){
@@ -533,8 +533,20 @@ function setFitKey(direction, event){
 
 function updateAttributes(target){
 	document.getElementById(target).style.display = 'block';//show selected page
-	const inputs = document.querySelectorAll('input.configBtn');
-	inputs.forEach(input => input.disabled = true);
+	document.getElementById('right').disabled = true; 
+	document.getElementById('left').disabled = true;
+	document.getElementById('up').disabled = true;
+	document.getElementById('down').disabled = true;
+	document.getElementById('color5').disabled = true;
+	document.getElementById('color15').disabled = true;
+	document.getElementById('color25').disabled = true;
+	document.getElementById('time').disabled = true;
+	document.getElementById('balls').disabled = true;
+	document.getElementById('numberballs').disabled = true; 
+	document.getElementById('monsters').disabled = true;
+	document.getElementById('numbermonsters').disabled = true; 
+	document.getElementById("button1").disabled = true;
+	document.getElementById("button2").disabled = true;
 	Start();
 }
 

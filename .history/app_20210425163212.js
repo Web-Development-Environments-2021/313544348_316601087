@@ -386,8 +386,6 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			const inputs = document.querySelectorAll('input.configBtn');
-			inputs.forEach(input => input.disabled = false);
 			show('configuration');
 			let form = $("#login_form");
 			form[0].reset();
@@ -533,8 +531,8 @@ function setFitKey(direction, event){
 
 function updateAttributes(target){
 	document.getElementById(target).style.display = 'block';//show selected page
-	const inputs = document.querySelectorAll('input.configBtn');
-	inputs.forEach(input => input.disabled = true);
+	$('#balls').slider('disable');
+	$('#monsters').slider('disable');
 	Start();
 }
 

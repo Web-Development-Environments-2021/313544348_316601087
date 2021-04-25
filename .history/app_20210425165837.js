@@ -386,8 +386,20 @@ $(document).ready(function() {
 		}, 
 		submitHandler: function() {
 			alert('hello');
-			const inputs = document.querySelectorAll('input.configBtn');
-			inputs.forEach(input => input.disabled = false);
+			document.getElementById('right').disabled = false; 
+			document.getElementById('left').disabled = false;
+			document.getElementById('up').disabled = false;
+			document.getElementById('down').disabled = false;
+			document.getElementById('color5').disabled = false;
+			document.getElementById('color15').disabled = false;
+			document.getElementById('color25').disabled = false;
+			document.getElementById('time').disabled = false;
+			document.getElementById('balls').disabled = false;
+			document.getElementById('numberballs').disabled = false; 
+			document.getElementById('monsters').disabled = false;
+			document.getElementById('numbermonsters').disabled = false; 
+			document.getElementById("button1").disabled = false;
+			document.getElementById("button2").disabled = false;
 			show('configuration');
 			let form = $("#login_form");
 			form[0].reset();
@@ -535,6 +547,21 @@ function updateAttributes(target){
 	document.getElementById(target).style.display = 'block';//show selected page
 	const inputs = document.querySelectorAll('input.configBtn');
 	inputs.forEach(input => input.disabled = true);
+	// document.getElementsByClassName('configBtn').disabled = true;
+	// document.getElementById('right').disabled = true; 
+	// document.getElementById('left').disabled = true;
+	// document.getElementById('up').disabled = true;
+	// document.getElementById('down').disabled = true;
+	// document.getElementById('color5').disabled = true;
+	// document.getElementById('color15').disabled = true;
+	// document.getElementById('color25').disabled = true;
+	// document.getElementById('time').disabled = true;
+	// document.getElementById('balls').disabled = true;
+	// document.getElementById('numberballs').disabled = true; 
+	// document.getElementById('monsters').disabled = true;
+	// document.getElementById('numbermonsters').disabled = true; 
+	// document.getElementById("button1").disabled = true;
+	// document.getElementById("button2").disabled = true;
 	Start();
 }
 

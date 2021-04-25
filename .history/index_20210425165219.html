@@ -138,16 +138,16 @@
 				<br>
 				<div>
 					<label for="time">Choose game time:(minimum 60 seconds)</label>
-					<input class = "configBtn" type="number" id="time" name="time" min="60" value="60">
+					<input type="number" id="time" name="time" min="60" value="60">
 				</div>
 				<div>
 					<label for="monstersquantity">Choose number of monsters:(number between 1-4)</label>
-					<input class = "configBtn" id = "monsters" type="range" min="1" max="4" value="1" onchange="chosenNumberMonsters(this.value)">                             
+					<input id = "monsters" type="range" min="1" max="4" value="1" onchange="chosenNumberMonsters(this.value)">                             
 					<p id="numbermonsters"></p>
 				</div>
 				<br>
-				<input class = "configBtn" type="button" id = "button1" value="fill form randomly" onclick="random()">
-				<input class = "configBtn" type="button" id = "button2" value="Let's start!" onclick="updateAttributes('game')">
+				<input type="button" id = "button1" value="fill form randomly" onclick="random()">
+				<input type="button" id = "button2" value="Let's start!" onclick="updateAttributes('game')">
 			</form>
 		</div>
 
