@@ -15,14 +15,13 @@ var downArrow = 40;
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	Start();
-
 	var slider = document.getElementById("balls");
 	var output = document.getElementById("numberballs");
 	output.innerHTML = slider.value;
 
-	var slider2 = document.getElementById("monsters");
-	var output2 = document.getElementById("numbermonsters");
-	output2.innerHTML = slider2.value;
+	var slider = document.getElementById("monsters");
+	var output = document.getElementById("numbermonsters");
+	output.innerHTML = slider.value;
 });
 
 function Start() {
@@ -30,7 +29,10 @@ function Start() {
 	score = 0;
 	pac_color = "yellow";
 	var cnt = 100;
-	var food_remain = 50;
+	var food_5_points_remain = ceil(document.getElementById("numberballs").value * 0.6);//5 in board
+	var food_15_points_remain = ceil(document.getElementById("numberballs").value * 0.3);//15 in board
+	var food_25_points_remain = document.getElementById("numberballs").value - food_5_points_remain - food_15_points_remain;//25 in board
+	var food_remain = document.getElementById("numberballs").value;
 	var pacman_remain = 1;
 	start_time = new Date();
 	for (var i = 0; i < 10; i++) {
@@ -48,8 +50,22 @@ function Start() {
 			} else {
 				var randomNum = Math.random();
 				if (randomNum <= (1.0 * food_remain) / cnt) {
-					food_remain--;
-					board[i][j] = 1;
+					if(food_5_points_remain > 0){
+						food_5_points_remain--;
+						board[i][j] = 5;
+						food_remain--;
+					}
+					else if(food_15_points_remain > 0){
+						food_15_points_remain--;
+						board[i][j] = 15;
+						food_remain--;
+					}
+					else{
+						food_25_points_remain--;
+						board[i][j] = 25;
+						food_remain--;
+					}
+
 				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) {
 					shape.i = i;
 					shape.j = j;
@@ -62,9 +78,22 @@ function Start() {
 			}
 		}
 	}
-	while (food_remain > 0) {
+	while (food_5_points_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
-		board[emptyCell[0]][emptyCell[1]] = 1;
+		board[emptyCell[0]][emptyCell[1]] = 5;
+		food_5_points_remain--;
+		food_remain--;
+	}
+	while (food_15_points_remain > 0) {
+		var emptyCell = findRandomEmptyCell(board);
+		board[emptyCell[0]][emptyCell[1]] = 15;
+		food_15_points_remain--;
+		food_remain--;
+	}
+	while (food_25_points_remain > 0) {
+		var emptyCell = findRandomEmptyCell(board);
+		board[emptyCell[0]][emptyCell[1]] = 25;
+		food_25_points_remain
 		food_remain--;
 	}
 	keysDown = {};
@@ -129,10 +158,23 @@ function Draw() {
 				context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
 				context.fillStyle = "black"; //color
 				context.fill();
-			} else if (board[i][j] == 1) {
+			} else if (board[i][j] == 5) {
+				//color5
 				context.beginPath();
 				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
-				context.fillStyle = "black"; //color
+				context.fillStyle = document.getElementById("color5").value; //color
+				context.fill();
+			} else if (board[i][j] == 15) {
+				//color15
+				context.beginPath();
+				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
+				context.fillStyle = document.getElementById("color15").value; //color
+				context.fill();
+			} else if (board[i][j] == 25) {
+				//color25
+				context.beginPath();
+				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
+				context.fillStyle = document.getElementById("color25").value; //color
 				context.fill();
 			} else if (board[i][j] == 4) {
 				context.beginPath();
@@ -395,9 +437,18 @@ function showPassword() {
 	})
 
 function chosenNumberBalls(val) {
-	document.getElementById("numberballs").innerHTML = val;  
+	document.getElementById("numberballs").innerHTML = val; 
 	document.getElementById("numberballs").display("block");
 }
+
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+slider2.oninput = function() {
+	output.innerHTML = this.value;
+  }
 
 function chosenNumberMonsters(val) {
 	document.getElementById("numbermonsters").innerHTML = val;
@@ -405,14 +456,16 @@ function chosenNumberMonsters(val) {
 }
 
 function random(){
+	document.getElementById('balls').value = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
+	document.getElementById('numberballs').innerHTML = document.getElementById('balls').value;
+	document.getElementById("numberballs").display("block");
 	document.getElementById('color5').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color15').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color25').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('time').value = Math.floor(Math.random() * (1000 - 60 + 1) ) + 60;
-	document.getElementById('balls').value = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
-	document.getElementById('numberballs').innerHTML = document.getElementById('balls').value; 
-	document.getElementById('monsters').value = Math.floor(Math.random() * (4 - 1 + 1) ) + 1;
-	document.getElementById('numbermonsters').innerHTML = document.getElementById('monsters').value; 
+	document.getElementById('monsters').innerHTML = Math.floor(Math.random() * (4 - 1 + 1) ) + 1;
+	document.getElementById('numbermonsters').value = document.getElementById('monsters').value; 
+	document.getElementById("numbermonsters").display("block");
 }
 
 // set keyboard User
@@ -436,10 +489,8 @@ function setFitKey(direction, event){
 }
 
 function updateAttributes(){
-	show('game')
-	Start();
-}
 
+}
 
 
 	

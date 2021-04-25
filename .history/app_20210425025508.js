@@ -435,11 +435,5 @@ function setFitKey(direction, event){
 	}
 }
 
-function updateAttributes(){
-	show('game')
-	Start();
-}
-
-
 
 	

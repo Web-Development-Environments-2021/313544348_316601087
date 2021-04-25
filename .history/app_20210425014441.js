@@ -11,15 +11,19 @@ var leftArrow = 37;
 var rightArrow = 39;
 var upArrow = 38;
 var downArrow = 40;
+var ghost_pinki = new Object();
+var ghost_redi = new Object();
+var ghost_bluei = new Object();
+var ghost_yellowi = new Object();
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	Start();
-
+	//number of balls slider value
 	var slider = document.getElementById("balls");
 	var output = document.getElementById("numberballs");
 	output.innerHTML = slider.value;
-
+	//number of monsters slider value
 	var slider2 = document.getElementById("monsters");
 	var output2 = document.getElementById("numbermonsters");
 	output2.innerHTML = slider2.value;
@@ -395,24 +399,31 @@ function showPassword() {
 	})
 
 function chosenNumberBalls(val) {
-	document.getElementById("numberballs").innerHTML = val;  
+	document.getElementById("numberballs").innerHTML = val; 
 	document.getElementById("numberballs").display("block");
 }
 
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
 function chosenNumberMonsters(val) {
-	document.getElementById("numbermonsters").innerHTML = val;
+	document.getElementById("numbermonsters").innerHTML = val; 
 	document.getElementById("numbermonsters").display("block");
 }
 
 function random(){
+	document.getElementById('balls').value = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
+	document.getElementById('numberballs').innerHTML = document.getElementById('balls').value;
+	document.getElementById("numberballs").display("block");
 	document.getElementById('color5').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color15').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color25').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('time').value = Math.floor(Math.random() * (1000 - 60 + 1) ) + 60;
-	document.getElementById('balls').value = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
-	document.getElementById('numberballs').innerHTML = document.getElementById('balls').value; 
 	document.getElementById('monsters').value = Math.floor(Math.random() * (4 - 1 + 1) ) + 1;
-	document.getElementById('numbermonsters').innerHTML = document.getElementById('monsters').value; 
+	document.getElementById('numbermonsters').innerHTML = document.getElementById('monsters').value;
+	document.getElementById("numbermonsters").display("block");
 }
 
 // set keyboard User
@@ -434,12 +445,6 @@ function setFitKey(direction, event){
 		document.getElementById('down').value = event.key;
 	}
 }
-
-function updateAttributes(){
-	show('game')
-	Start();
-}
-
 
 
 	

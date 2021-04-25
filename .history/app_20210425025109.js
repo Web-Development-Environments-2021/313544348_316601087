@@ -405,14 +405,15 @@ function chosenNumberMonsters(val) {
 }
 
 function random(){
+	document.getElementById('balls').value = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
+	chosenNumberBalls(document.getElementById('balls').value);
 	document.getElementById('color5').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color15').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('color25').value = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	document.getElementById('time').value = Math.floor(Math.random() * (1000 - 60 + 1) ) + 60;
-	document.getElementById('balls').value = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
-	document.getElementById('numberballs').innerHTML = document.getElementById('balls').value; 
 	document.getElementById('monsters').value = Math.floor(Math.random() * (4 - 1 + 1) ) + 1;
-	document.getElementById('numbermonsters').innerHTML = document.getElementById('monsters').value; 
+	document.getElementById('numbermonsters').value = document.getElementById('monsters').value; 
+	chosenNumberMonsters(document.getElementById('monsters').value);
 }
 
 // set keyboard User
@@ -434,12 +435,6 @@ function setFitKey(direction, event){
 		document.getElementById('down').value = event.key;
 	}
 }
-
-function updateAttributes(){
-	show('game')
-	Start();
-}
-
 
 
 	
