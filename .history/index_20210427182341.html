@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="./jquery-3.4.1.slim.min.js"></script>
+		<script type="text/javascript" src="./app.js"></script>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="lib/css/emoji.css" rel="stylesheet">
+		<script src="./jquery-3.4.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	</head>
+
+	<body>
+		<div id = "wrapper">
+			<div id="container" style="display: block;">
+				<header style="position: fixed; width: 100%;">
+					<img id="logo" src="images/logo2.png" style="height: 21mm;">
+					<!-- <a href="https://fontmeme.com/pac-man-font/"><img src="https://fontmeme.com/permalink/210427/29404a9f7d976f0661de3979e163ae5b.png" alt="pac-man-font" border="0"></a> -->
+					<!-- <a href="https://fontmeme.com/pac-man-font/"><img src="https://fontmeme.com/permalink/210427/da243d690e31d3916a72219ecd631057.png" alt="pac-man-font" border="0"></a>		 -->
+					<!-- <a href="https://fontmeme.com/pac-man-font/"><img src="https://fontmeme.com/permalink/210427/97bbd5adba85b0df716186cc7bb8661c.png" alt="pac-man-font" border="0"></a> -->
+					<!-- <a href="https://fontmeme.com/pac-man-font/"><img src="https://fontmeme.com/permalink/210427/d7654634b0dfe7526ec268603a9cf173.png" alt="pac-man-font" border="0"></a> -->
+				</header>
+				<br>
+				<div class="bar" id="myNavbar">
+					<ul class="list-bar">
+					<li> <a onclick="show('welcome')"> <i class="fa fa-home"></i> Welcome </a></li>
+					<li> <a onclick="show('register')"><i class="fa fa-user"></i> Register </a></li>
+					<li> <a onclick="show('login')"><i class="fa fa-camera-retro"></i> Login </a></li>
+					<li> <a id="openModal"><i class="fa fa-music"></i> About </a></li>
+					</ul>
+				</div>
+				<br>
+				<div class="pages" id="welcome">
+					<p class="headline"> WELCOME </p>
+					<br>
+					<button class="button" onclick="show('login')"> Sign in </button>
+					<button class="button" onclick="show('register')"> Sign up </button>
+				</div>
+				<div style="flex: 1 0 auto;">
+					<footer class="footer" style="top: 110%;">
+						<a href="#logo" class="button-up"><i class="fa fa-arrow-up"></i> Lift me up</a>
+						<div class="numbers-text">
+						<a class="links" href="https://www.linkedin.com/in/ofir-michaely-745437158/" ><i class="fa fa-linkedin"></i></a>
+						<a class="links" href="https://github.com/ofirmich" ><i class="fa fa-github"></i></a>
+						</div>
+					</footer>
+				</div>
+			</div>
+
+			<!-- register form -->
+			<div class="pages" id="register">register
+				<form id="register_form">
+					<p>
+					<label for="username">Username </label>
+					<input id="username" name="username">
+					</p>
+					<p>
+					<label for="password">Password </label>
+					<input type="password" id="password" name="password"><br><br>
+					<input type="checkbox" onclick="showPassword()">Show Password
+					</p>
+					<p>
+					<label for="firstname">First Name </label>
+					<input id="firstname" name="firstname">
+					</p>
+					<p>
+					<label for="lastname">Last Name </label>
+					<input id="lastname" name="lastname">
+					</p>
+					<p>
+					<label for="email">E-Mail </label>
+					<input id="email" name="email">
+					</p>
+					<p>
+					<label for="birthdate">Birth date</label>
+					<input type="date" id="birthdate" name="birthdate">
+					</p>
+					<p>
+					<input type="submit" value="Submit" id="registerSubmit">
+					<input type="button" value="Cancel" id="registerCancel" onclick="cancleReg()">
+
+					</p>
+				</form>
+			</div>
+
+			<!-- login form -->
+			<div class="pages" id="login">login
+				<form id="login_form">
+					<p>
+					<label for="username">Username </label>
+					<input id="username_login" name="username_login">
+					</p>
+					<p>
+					<label for="password">Password </label>
+					<input type="password" id="password_login" name="password_login"><br><br>
+					<!-- <input type="checkbox" onclick="showPassword()">Show Password 
+					</p>  
+					show password not working -->
+					
+					<input class="button" type="submit" value="Submit" >
+
+					</p>
+				</form>
+			</div>
+
+			<!-- The Modal -->
+			<div id="about" class="modal">
+				<div class="modal-content">
+				<div class="modal-header">
+					<span class="close" onclick="document.getElementById('about').style.display='none'">&times;</span>
+					<h2>Modal Header</h2>
+				</div>
+				<div class="modal-body">
+					<p>Some text in the Modal Body</p>
+					<p>Some other text...</p>
+				</div>
+				<div class="modal-footer">
+					<h3>Modal Footer</h3>
+				</div>
+				</div>
+				<!-- <script type = "text/javascript" src="app.js"></script>   -->
+			</div>
+
+			<div class="pages" id="configuration" >
+				<h2> Configuration </h2>
+				<form id= "from1">
+					<div>Choose your Buttons: <br>
+						<label for="right">Right key:</label>
+						<input class = "configBtn" size="9" type="text" id="right" autocomplete="off" value="ArrowRight" onkeydown="setFitKey('right', event)" maxlength="1"><br>
+						<label for="left">Left key:</label>
+						<input class = "configBtn" size="9" type="text" id="left" autocomplete="off" value="ArrowLeft" onkeydown="setFitKey('left', event)" maxlength="1"><br>
+						<label for="up">Up key:</label>
+						<input class = "configBtn" size="9" type="text" id="up" autocomplete="off" value="ArrowUp" onkeydown="setFitKey('up', event)" maxlength="1"><br>
+						<label for="down">Down key:</label>
+						<input class = "configBtn" size="9" type="text" id="down" autocomplete="off" value="ArrowDown" onkeydown="setFitKey('down', event)" maxlength="1"><br>
+					</div>
+
+					<br>
+					<div>
+						<label for="ballsquantity">Choose number of balls:(number between 50-90)</label><br>
+						<input class = "configBtn" id = "balls" type="range" min="50" max="90" value="50" onchange="chosenNumberBalls(this.value)">                             
+						<p id="numberballs"></p>
+					</div>
+				
+					<div>
+						<label for="colors">3 types of balls- choose their colors:</label>
+						<br>
+						<label>type 1: 5 points </label>
+						<input class = "configBtn" type="color" id="color5" name="color5" value="#f6b73c"><br>
+						<label>type 2: 15 points </label>
+						<input class = "configBtn" type="color" id="color15" name="color15" value="#e66465"><br>
+						<label>type 3: 25 points </label>
+						<input class = "configBtn" type="color" id="color25" name="color25" value="#665EE6">
+					</div>
+					<br>
+					<div>
+						<label for="timer">Choose game time:(minimum 60 seconds)</label><br>
+						<input class = "configBtn" type="number" id="timer" name="timer" min="60" value="60" onKeyDown="return false">
+					</div>
+					<div>
+						<label for="monstersquantity">Choose number of monsters:(number between 1-4)</label>
+						<input class = "configBtn" id = "monsters" type="range" min="1" max="4" value="1" onchange="chosenNumberMonsters(this.value)">                             
+						<p id="numbermonsters"></p>
+					</div>
+					
+					<input class = "configBtn" type="button" id = "button1" value="fill form randomly" onclick="random()">
+					<input class = "configBtn" type="button" id = "button2" value="Let's start!" onclick="updateAttributes('game')">
+				</form>
+			</div>
+
+
+			<div class="pages" id="game" style="display:none;">
+				<div id="game_score_time_live">
+					<div id="score" class="game_progress">
+						<label for="lblScore">SCORE:</label>
+						<input id="lblScore" type="text" />
+					</div>
+					<div id="time" class="game_progress">
+						<label for="lblTime">TIME:</label>
+						<input id="lblTime" type="text" readonly="readonly" />
+					</div>
+					<label for="lblLives">LIVES:</label>
+						<img id="curr_lifes" width="50" height="20"/>
+					<div id="newGame">
+						<input class="button" type="button" id = "new" value="New Game" onclick="backToConfig()">
+					</div>
+		
+				</div>
+				<div id="games">
+					<canvas id="canvas" height="600" width="600"></canvas>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
