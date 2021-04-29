@@ -1,0 +1,638 @@
+body {
+	background-repeat: no-repeat;
+	background-attachment: fixed;  
+	background-size: 100% 100%;
+	padding:0;
+	margin: 0;
+  font-family: "Inconsolata", sans-serif;
+  background-color: rgb(66, 90, 128);
+
+}
+
+.headline{
+  position:absolute;
+  top:40px; 
+  left: 39%;
+} 
+
+#logowelcome{
+  position:absolute;
+  top:220px; 
+  left: 39%; 
+  height: 30%; 
+  width: 15cm;
+}
+
+#buttonspos{
+  position:absolute;
+  top:390px;
+  left: 39%; 
+}
+
+
+header
+{
+	box-shadow: 0px 0 7px 0 rgba(48, 48, 48, 0.808);
+	top: 0;
+	font-size: 12px;
+	text-align: center;
+	background-color: black;
+	width: 100%;
+	padding:0;
+	height: 50px;
+	border-radius: 20px;
+
+}
+
+
+#logo{
+  top:1px;
+  float: left; 
+  height: 100%;
+  width: 48%;
+	border-radius:20px;
+
+  }
+
+#menuBar
+{
+	width: 100%;
+	height: 45px;
+	list-style-type: none;
+	/* overflow: hidden; */
+	background-color: rgb(42, 65, 105);
+	box-shadow: 0px 0 7px 0 rgba(48, 48, 48, 0.808);
+	border-radius: 20px;
+	z-index: 1;
+	/* border: 5px solid black; */
+}
+
+ li {
+	padding: 5px 10px;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	background-color: #4780fa;
+	border: none;
+  font-family: "Inconsolata", sans-serif;
+	border-radius: 25px;
+	/* box-shadow: 0 9px rgba(129, 129, 129, 0.555); */
+	/* font-family: 'Press Start 2P', cursive; */
+	border: 2px solid rgb(255, 255, 255);
+  display: inline; 
+	margin-right: 10px;
+  margin-top: 20;
+
+  }
+  li:hover{
+	  color: rgb(14, 25, 70);
+	  background-color: #ffb7aa;
+	  
+	  border: 2px solid rgb(255, 255, 255);
+
+	  transition-duration: 0.4s;
+  }
+  
+  li:active{
+    /* box-shadow: 0 5px #666; */
+	/* box-shadow: 0 1px #666; */
+	background-color: #ffdaaa;
+  
+  }
+ 
+  li a {
+    bottom: 4px;
+    display: inline;
+    text-align: center;
+    letter-spacing: 2px;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-family: "Inconsolata", sans-serif;
+    }
+
+#userMenu{
+	float: right; 
+	cursor:text;
+}
+
+
+
+
+
+
+.headlineLogo{
+  /* margin-left: 140px; */
+  /* right: 0; */
+  float: right;
+  color:rgb(238, 239, 245);
+  font-size : 15px;
+  font-family: "Inconsolata", sans-serif;
+
+}
+#welcome{
+	font-family: "Inconsolata", sans-serif;
+	text-align: center;
+	font-size:70px;
+  color: white;
+	letter-spacing: 5px;
+	-webkit-animation: fadein 1s;
+	animation: fadein 1s;
+  background: 100%;
+  margin-top: 50px;
+}
+
+ 
+  
+  .pages{
+    background-color: rgb(66, 90, 128);
+
+  }
+
+
+  
+  #register, #login, #configuration{
+    box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 10px 10px;
+    max-width: 70%;
+    max-height: 670px;
+    margin: auto;
+    background-color: rgb(108, 134, 179);
+    color: whitesmoke;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 18px;
+    /* -webkit-animation: animatezoom 0.3s;
+    animation: animatezoom 0.3s; */
+    border: 3px dotted rgb(255, 255, 255);
+	/* overflow: hidden; */
+    }
+  
+    
+    #headlineReg{
+      font-size: 25px;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      text-decoration: wheat;
+    }
+  
+
+  .button,  #registerSubmit, #registerCancel{
+	padding: 10px 20px;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	background-color: #4780fa;
+	border: none;
+  font-family: "Inconsolata", sans-serif;
+	border-radius: 30px;
+	box-shadow: 0 9px rgba(129, 129, 129, 0.555);
+	/* font-family: 'Press Start 2P', cursive; */
+	border: 5px solid rgb(255, 255, 255);
+     display: inline; 
+
+}
+
+  @keyframes changeColor {
+    from {
+        background-color: #00A0D6;
+    }
+    to {
+        background-color: #00B1D7;
+    }
+}
+  
+  .button:hover, #toRegister:hover ,#toLogin:hover, #registerSubmit:hover, #registerCancel:hover{
+    background-color: #aab7ff;
+    animation: changeColor 100s infinite alternate;
+  }
+  
+  .button:active, #toRegister:active ,#toLogin:active, #registerSubmit:active, #registerCancel:active{
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+	background-color: #aad6ff;
+  }
+
+  h1{
+	text-align: center;
+  font-family: "Inconsolata", sans-serif;
+
+
+  }
+
+  h5{
+	text-align: center;
+	font-size: 12px; 
+	padding: 0;
+  font-family: "Inconsolata", sans-serif;
+
+  }
+
+
+  .buttonC{
+    padding: 5px 10px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #4780fa;
+    border: none;
+    font-family: "Inconsolata", sans-serif;
+    border-radius: 20px;
+    box-shadow: 0 9px rgba(129, 129, 129, 0.555);
+    /* font-family: 'Press Start 2P', cursive; */
+    border: 3px solid rgb(255, 255, 255);
+       display: inline; 
+  
+  }
+  
+  .buttonC:hover{
+    background-color: #aab7ff;
+    animation: changeColor 100s infinite alternate;
+  }
+  
+  .buttonC:active{
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+	background-color: #aad6ff;
+  }
+
+
+  
+
+  /* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 100px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 100px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)} 
+	to {-webkit-transform: scale(1)}
+  }
+	
+  @keyframes animatezoom {
+	from {transform: scale(0)} 
+	to {transform: scale(1)}
+  }
+  
+ 
+
+
+
+
+label.error {
+  font-size: 16px;
+	display: inline;
+	color: rgb(245, 245, 245);
+}
+
+
+
+footer{
+	border-radius: 20px;
+
+  font-family: "Inconsolata", sans-serif;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 45px;
+	overflow: hidden;
+  color: white;
+	background-color: rgb(0, 0, 0);
+	text-align: center;
+	/* border-radius: 20px 20px; */
+	list-style-type: none;
+	z-index: -1;
+}
+
+
+
+
+
+#game{
+	background-color:#666c9e;
+	/* -webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s; */
+	width: 100%;
+	height: 470px;
+	/* margin-top: 40px; */
+	
+}
+
+#canvas{
+  float: center;
+  top: 0px;
+	height: 470px;
+    /* border: 1px solid rgb(97, 85, 173); */
+}
+
+* {
+	box-sizing: border-box;
+  }
+
+
+
+  .main {
+	text-align: center;
+	float: left;
+	width:50%;
+	border-color: rgb(0, 0, 0);
+	background-color:#181818;;
+	height: 502px;
+
+  }
+
+  .exp{
+	  padding-left: 40px;
+  }
+
+  #anotherfont1, .exp{
+	font-family: 'Noto Sans JP', sans-serif;
+	color:rgb(255, 255, 255);
+  }
+
+  #anotherfont2{
+	font-family: 'Press Start 2P', cursive;
+  }
+
+  #show5point, #show15point, #show25point{
+	width: 40px;
+	border-color: silver;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 20px;
+	height: 15px;
+  }
+
+
+
+
+
+.button-upright
+{
+  margin-right: -150px;
+  margin-left: 40px;
+	border:none;
+	display:inline;
+  top: 5px;
+	padding:15px 15px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	background-color:inherit;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	color:	#eeeeee;
+  transition-duration: 0.5s;
+
+}
+
+
+
+
+.button-upmiddle
+{
+	/* margin-left: 200px; */
+  /* float: left; */
+  margin-left: 20px;
+	border:none;
+	display:inline;
+  top: 5px;
+	padding:15px 15px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	background-color:inherit;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	color:	#eeeeee;
+  transition-duration: 0.5s;
+
+}
+
+.button-upleft
+{
+	
+  float: left;
+	border:none;
+	display:inline;
+  top: 5px;
+	padding:15px 15px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	background-color:inherit;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	color:	#eeeeee;
+  transition-duration: 0.5s;
+
+}
+
+.linkleft
+{
+	float: left;
+ 	margin-bottom: 3px;
+	border:none;
+	display:inline-block;
+  	top: 2px;
+	padding:14px 14px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	color:	#eeeeee;
+	background-color:inherit;
+}
+
+
+
+
+.linkright
+{
+  float: right;
+ 	 margin-bottom: 3px;
+    /* margin-left: 100; */
+	border:none;
+	display:inline-block;
+  	top: 2px;
+	padding:14px 14px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	color:	#eeeeee;
+	background-color:inherit;
+/* 
+  float: left;
+ 	margin-bottom: 3px;
+	border:none;
+	display:inline-block;
+  	top: 2px;
+	padding:14px 14px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	color:	#eeeeee; */
+}
+
+
+
+.linkmiddle
+{
+  margin-right: 150px;
+  margin-bottom: 3px;
+  /* margin-left: -250px; */
+	border:none;
+	display:inline-block;
+  top: 2px;
+	padding:14px 14px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	color:	#eeeeee;
+	background-color:inherit;
+}
+
+
+.button-upleft:hover,.button-upright:hover,.button-upmiddle:hover
+{
+
+	color:rgb(0, 0, 0);
+	background-color:#fff5c8;
+	border-radius: 18px;
+	transition: 0.6s;
+
+}
+
+
+
+
+.linkmiddle:hover,.linkleft:hover, .linkright:hover
+{
+	color:rgb(0, 0, 0)!important;
+	background-color:#fff5c8;
+	border-radius: 18px;
+  transition-duration: 0.6s;
+
+}
+
+.configBtnD{
+   margin-right: 10px; 
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 3; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #c7e6eb;
+  color: black;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #c7e6eb;
+  color: black;
+}
+
+.aboutGame{
+	margin-left: 10px;
+  font-size: 22px;
+  float: left;
+  width:25%;  
+}
+
+.rightSetting{
+float: right;
+  text-align: left;
+  width:25%;  
+
+}
+
+.play{
+  width:25%;  
+  margin-left: 400px;
+
+}
