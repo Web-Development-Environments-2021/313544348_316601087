@@ -46,7 +46,7 @@ var walls = [[1,0],[6,0],[7,0],[8,0],[13,0],
 			[0,8],[6,8],[7,8],[8,8],[14,8],
 			[0,9],[14,9],
 			[4,10],[5,10],[9,10],[10,10],
-			[2,11],[5,11],[6,11],[8,11],[9,11],[12,11],
+			[1,11],[2,11],[5,11],[6,11],[8,11],[9,11],[12,11],[13,11],
 			[2,12],[12,12],[0,13],
 			[2,13],[7,13],[12,13],[14,13],
 			[5,14],[6,14],[7,14],[8,14],[9,14]];
@@ -632,7 +632,7 @@ function UpdatePosition() {
 	//heart
 	if(board[shape.i][shape.j] == 100){
 		lifes++;
-		// showLife();
+		showLife();
 		board[shape.i][shape.j] = 0;
 		foodToEat--;
 
@@ -647,7 +647,7 @@ function UpdatePosition() {
 		else{
 			lifes++;
 		}
-		// showLife();
+		showLife();
 		board[shape.i][shape.j] = 0;
 		foodToEat--;
 
@@ -817,7 +817,7 @@ function Draw() {
 
 	function catchPacman(){
 		lifes--;
-		// showLife();
+		showLife();
 		score=score-10;
 		board[shape.i][shape.j]= 0 ;
 		var emptyCell = findRandomEmptyCellPacman(board);	

@@ -46,7 +46,7 @@ var walls = [[1,0],[6,0],[7,0],[8,0],[13,0],
 			[0,8],[6,8],[7,8],[8,8],[14,8],
 			[0,9],[14,9],
 			[4,10],[5,10],[9,10],[10,10],
-			[2,11],[5,11],[6,11],[8,11],[9,11],[12,11],
+			[1,11],[2,11],[5,11],[6,11],[8,11],[9,11],[12,11],[13,11],
 			[2,12],[12,12],[0,13],
 			[2,13],[7,13],[12,13],[14,13],
 			[5,14],[6,14],[7,14],[8,14],[9,14]];
@@ -347,7 +347,7 @@ function GetKeyPressed() {
 //updates
 function updateStrawPosition(){
 	board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.prev;
-	// focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change 
+	focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change 
 	var dir = getRandomDirS(focreStrawberry);
 	if(dir == 'left'){
 		focreStrawberry.prev = board[(focreStrawberry.col)-1][focreStrawberry.row];
@@ -391,7 +391,6 @@ function updateStrawPosition(){
 		board[focreStrawberry.col][focreStrawberry.row] = 0;
 		return; //pacman
 	}
-	focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change
 	board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.id;
 
 }
@@ -488,7 +487,7 @@ function validSnextMove(col, row, wantedDirection ,prevDirection){
 function updateGhostPosition() {
 	for(var m=0 ; m< ghosts_amount ; m++){
 		board[listOfGhost[m].col][listOfGhost[m].row] = listOfGhost[m].prev;
-		// listOfGhost[m].prev = board[listOfGhost[m].col][listOfGhost[m].row]; //make prev be the step before change 
+		listOfGhost[m].prev = board[listOfGhost[m].col][listOfGhost[m].row]; //make prev be the step before change 
 
 		var dir = getRandomDir(listOfGhost[m]);
 		if(dir == 'left'){
@@ -531,15 +530,13 @@ function updateGhostPosition() {
 				catchPacman();				
 			}
 			else{
-				ghostMetPacman=false;
+				
 			}
-			break;
 
 		}
 		else{
-			ghostMetPacman=false;
-			listOfGhost[m].prev = board[listOfGhost[m].col][listOfGhost[m].row]; //make prev be the step before 
-			board[listOfGhost[m].col][listOfGhost[m].row] = listOfGhost[m].id;
+		ghostMetPacman=false;
+		board[listOfGhost[m].col][listOfGhost[m].row] = listOfGhost[m].id;
 		}
 
 	}
@@ -606,24 +603,23 @@ function UpdatePosition() {
 
 	//ghost- take off one live and init the positions
 	if (board[shape.i][shape.j] == 6 || board[shape.i][shape.j] == 7 || board[shape.i][shape.j] == 8  || board[shape.i][shape.j] == 9) {
-		for(var x=0 ; x< ghosts_amount ; x++){
-			board[listOfGhost[x].col][listOfGhost[x].row] = listOfGhost[x].prev;
-		}
-		initialGhosts();
 		PacmanMetghost=true;
 		if(ghostMetPacman==false){
 			catchPacman();
+			initialGhosts();
 		}
+		
 
-		else{
-			PacmanMetghost=false;
-		}
-	}	
+
+	}
+
+	else{
+		PacmanMetghost=false;
+	}
 	
 	//straw 
 	if(board[shape.i][shape.j] == 50){
 		score = score + 50;
-		board[shape.i][shape.j] = 0;
 		window.clearInterval(strawInterval);
 		foodToEat--;
 
@@ -632,7 +628,6 @@ function UpdatePosition() {
 	//heart
 	if(board[shape.i][shape.j] == 100){
 		lifes++;
-		// showLife();
 		board[shape.i][shape.j] = 0;
 		foodToEat--;
 
@@ -647,7 +642,6 @@ function UpdatePosition() {
 		else{
 			lifes++;
 		}
-		// showLife();
 		board[shape.i][shape.j] = 0;
 		foodToEat--;
 
@@ -817,7 +811,6 @@ function Draw() {
 
 	function catchPacman(){
 		lifes--;
-		// showLife();
 		score=score-10;
 		board[shape.i][shape.j]= 0 ;
 		var emptyCell = findRandomEmptyCellPacman(board);	
@@ -829,9 +822,9 @@ function Draw() {
 		
 	
 		if (lifes == 0){
-			showLife();
 			music.pause();
 			endMusic.play();
+			// Draw();
 			window.clearInterval(interval);
 			window.clearInterval(ghostInterval);
 			window.clearInterval(strawInterval);
