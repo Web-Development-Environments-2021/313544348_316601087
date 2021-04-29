@@ -72,7 +72,7 @@ header
 }
 
 #menuBar li{ 
-  line-height:40px;
+  line-height:40px
 }
 
  li {
@@ -97,7 +97,9 @@ header
   li:hover{
 	  color: rgb(14, 25, 70);
 	  background-color: #ffb7aa;
+	  
 	  border: 2px solid rgb(255, 255, 255);
+
 	  transition-duration: 0.4s;
   }
   
@@ -134,9 +136,8 @@ header
   float: right;
   right: 0;
   color:rgb(238, 239, 245);
-  font-size : 13px;
+  font-size : 15px;
   font-family: "Inconsolata", sans-serif;
-  margin-bottom: 0;
 
 }
 #welcome{
@@ -386,8 +387,8 @@ footer{
 
 .button-upright
 {
-  /* margin-right: -100px; */
-  margin-left: 30px;
+  margin-right: -200px;
+  margin-left: 40px;
 	border:none;
 	display:inline;
   top: 5px;
@@ -475,8 +476,7 @@ footer{
 
 .linkright
 {
-  /* float: right; */
-  /* margin-right: 45px; */
+  float: right;
  	margin-bottom: 3px;
 	border:none;
 	display:inline-block;
@@ -497,7 +497,7 @@ footer{
 
 .linkmiddle
 {
-  margin-right: 150px;
+  margin-right: 300px;
   margin-bottom: 3px;
   /* margin-left: -250px; */
 	border:none;

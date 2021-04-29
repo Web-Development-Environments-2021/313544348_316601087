@@ -386,8 +386,8 @@ footer{
 
 .button-upright
 {
-  /* margin-right: -100px; */
-  margin-left: 30px;
+  margin-right: -100px;
+  margin-left: 40px;
 	border:none;
 	display:inline;
   top: 5px;
@@ -475,7 +475,7 @@ footer{
 
 .linkright
 {
-  /* float: right; */
+  float: right;
   /* margin-right: 45px; */
  	margin-bottom: 3px;
 	border:none;
@@ -497,7 +497,7 @@ footer{
 
 .linkmiddle
 {
-  margin-right: 150px;
+  margin-right: 200px;
   margin-bottom: 3px;
   /* margin-left: -250px; */
 	border:none;
