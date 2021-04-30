@@ -17,7 +17,7 @@ var boardLength = 15;
 var ghostPositions = [[0,0], [0,boardLength-1], [boardLength-1,0], [boardLength-1,boardLength-1]];
 var userName;
 var ghosts_amount=4;
-var notValidMove = [4, 6, 7 , 8, 9];
+var notValidMove = [4, 6, 7 , 8, 9, 50, 100];
 var notValidMoveG = [4, 6, 7 , 8, 9, 50];
 var keyboardDiraction = 4;
 var lifes;
@@ -35,18 +35,21 @@ var endMusic = new Audio('music/end.mp3');
 var winMusic = new Audio('music/win.mp3');
 var listOfGhost = new Array();
 var music = new Audio('music/Keep-Yourself-Alive.mp3');
-var walls = [[6,0],[7,0],[8,0],
+var walls = [[1,0],[6,0],[7,0],[8,0],[13,0],
 			[7,1],
-			[2,2],[12,2],
+			[2,2],[3,2],[7,2],[11,2],[12,2],
 			[1,3],[2,3],[5,3],[9,3],[12,3],[13,3],
 			[4,4],[5,4],[6,4],[8,4],[9,4],[10,4],
 			[5,5],[9,5],
 			[0,6],[14,6],
 			[0,7],[1,7],[2,7],[7,7],[12,7],[13,7],[14,7],
 			[0,8],[6,8],[7,8],[8,8],[14,8],
-			[0,9],[14,9],[5,10],[9,10],
+			[0,9],[14,9],
+			[4,10],[5,10],[9,10],[10,10],
 			[2,11],[5,11],[6,11],[8,11],[9,11],[12,11],
-			[2,12],[12,12],[8,14],[7,14],[6,14]];
+			[2,12],[12,12],[0,13],
+			[2,13],[7,13],[12,13],[14,13],
+			[5,14],[6,14],[7,14],[8,14],[9,14]];
 
 
 function PauseMusic(){
@@ -368,7 +371,7 @@ function updateStrawPosition(){
 		focreStrawberry.currDirection = 'up';
 	
 	}
-	else if(dir == 'down'){
+	else{//down
 		focreStrawberry.prev = board[focreStrawberry.col][(focreStrawberry.row)+1];
 		focreStrawberry.row++;
 		focreStrawberry.prevDirection = 'up'; 
@@ -411,10 +414,6 @@ function getRandomDirS(straw){
 		}
 		else if(strawCol+1 < boardLength && validSnextMove(strawCol+1, strawRow, 'right' , straw.prevDirection)){ 
 			move.push("right");
-		}
-
-		if(move.length == 0){
-			console.log('hr');
 		}
 	
 		// get random index value
@@ -649,7 +648,7 @@ function UpdatePosition() {
 			lifes++;
 		}
 		// showLife();
-		// board[shape.i][shape.j] = 0;
+		board[shape.i][shape.j] = 0;
 		foodToEat--;
 
 	}
@@ -667,17 +666,7 @@ function UpdatePosition() {
 	board[shape.i][shape.j] = 2;
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
-	if (lifes == 0){
-		showLife();
-		music.pause();
-		endMusic.play();
-		window.clearInterval(interval);
-		window.clearInterval(ghostInterval);
-		window.clearInterval(strawInterval);
-		alert('Loser!');
-
-	}
-	else if(foodToEat <= 0){
+	if(foodToEat <= 0){
 		music.pause();
 		window.clearInterval(interval);
 		window.clearInterval(ghostInterval);
@@ -685,7 +674,7 @@ function UpdatePosition() {
 		alert('Winner!!! You ate everything!')
 	}
 
-	else if ( time_elapsed >= game_time ){
+	if ( time_elapsed >= game_time ){
 		window.clearInterval(interval);
 		window.clearInterval(ghostInterval);
 		window.clearInterval(strawInterval);
