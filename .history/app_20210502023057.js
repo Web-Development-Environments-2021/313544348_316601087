@@ -651,12 +651,13 @@ function UpdatePosition() {
 			focreStrawberry.prev = 0;
 		}
 		window.clearInterval(strawInterval);
-	}
+		}
 
-	else{
-		PacmanMetstraw=false;
-	}
+		else{
+			PacmanMetstraw=false;
+		}
 		
+	}
 
 	//heart
 	if(board[shape.i][shape.j] == 100){

@@ -28,8 +28,6 @@ var candy;
 var clock;
 var ghostMetPacman= false;
 var PacmanMetghost= false;
-var strawMetPacman= false;
-var PacmanMetstraw= false;
 var musicIsOn= false;
 var winMusicIsOn= false;
 
@@ -380,34 +378,21 @@ function updateStrawPosition(){
 	}
 
 	if(board[focreStrawberry.col][focreStrawberry.row] == 2){ //meet pacman
-		strawMetPacman=true;
-		if(PacmanMetstraw==false){
-			score = score + 50;
-			foodToEat--;
-			focreStrawberry.prev = 0;
-			// board[shape.i][shape.j] = 0;
-			window.clearInterval(strawInterval);
-		}
-		else{
-			strawMetPacman=false;
-		}
-
 		// var cell = board[focreStrawberry.col][focreStrawberry.row];
 		// if(cell==5 || cell==15 || cell==25){
 			// score = score + cell +50;
 			// foodToEat = foodToEat-2;
 		// }
 		// else{
-		// score = score + 50;
-		// foodToEat--;
+		score = score + 50;
+		foodToEat--;
 		// }
-		
+		focreStrawberry.prev = 0;
 		
 		// board[focreStrawberry.col][focreStrawberry.row] = 0;
-		// window.clearInterval(strawInterval);
+		window.clearInterval(strawInterval);
 	}
 	else{
-		strawMetPacman=false;
 		focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change
 		board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.id;
 	}
@@ -641,7 +626,6 @@ function UpdatePosition() {
 	
 	//straw 
 	if(board[shape.i][shape.j] == 50){
-		PacmanMetstraw=true;
 		score = score + 50;
 		foodToEat--;
 		// board[shape.i][shape.j] = 0;
@@ -652,11 +636,6 @@ function UpdatePosition() {
 		}
 		window.clearInterval(strawInterval);
 	}
-
-	else{
-		PacmanMetstraw=false;
-	}
-		
 
 	//heart
 	if(board[shape.i][shape.j] == 100){

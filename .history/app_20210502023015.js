@@ -642,21 +642,23 @@ function UpdatePosition() {
 	//straw 
 	if(board[shape.i][shape.j] == 50){
 		PacmanMetstraw=true;
-		score = score + 50;
-		foodToEat--;
-		// board[shape.i][shape.j] = 0;
-		if(focreStrawberry.prev != 0){
+		if(strawMetPacman==false){
+			score = score + 50;
 			foodToEat--;
-			score = score + focreStrawberry.prev;
-			focreStrawberry.prev = 0;
-		}
+			// board[shape.i][shape.j] = 0;
+			if(focreStrawberry.prev != 0){
+				foodToEat--;
+				score = score + focreStrawberry.prev;
+				focreStrawberry.prev = 0;
+			}
 		window.clearInterval(strawInterval);
-	}
+		}
 
-	else{
-		PacmanMetstraw=false;
-	}
+		else{
+			PacmanMetstraw=false;
+		}
 		
+	}
 
 	//heart
 	if(board[shape.i][shape.j] == 100){

@@ -388,9 +388,6 @@ function updateStrawPosition(){
 			// board[shape.i][shape.j] = 0;
 			window.clearInterval(strawInterval);
 		}
-		else{
-			strawMetPacman=false;
-		}
 
 		// var cell = board[focreStrawberry.col][focreStrawberry.row];
 		// if(cell==5 || cell==15 || cell==25){
@@ -404,10 +401,9 @@ function updateStrawPosition(){
 		
 		
 		// board[focreStrawberry.col][focreStrawberry.row] = 0;
-		// window.clearInterval(strawInterval);
+		window.clearInterval(strawInterval);
 	}
 	else{
-		strawMetPacman=false;
 		focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change
 		board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.id;
 	}
@@ -642,21 +638,23 @@ function UpdatePosition() {
 	//straw 
 	if(board[shape.i][shape.j] == 50){
 		PacmanMetstraw=true;
-		score = score + 50;
-		foodToEat--;
-		// board[shape.i][shape.j] = 0;
-		if(focreStrawberry.prev != 0){
+		if(strawMetPacman==false){
+			score = score + 50;
 			foodToEat--;
-			score = score + focreStrawberry.prev;
-			focreStrawberry.prev = 0;
-		}
+			// board[shape.i][shape.j] = 0;
+			if(focreStrawberry.prev != 0){
+				foodToEat--;
+				score = score + focreStrawberry.prev;
+				focreStrawberry.prev = 0;
+			}
 		window.clearInterval(strawInterval);
-	}
+		}
 
-	else{
-		PacmanMetstraw=false;
-	}
+		else{
+			PacmanMetstraw=false;
+		}
 		
+	}
 
 	//heart
 	if(board[shape.i][shape.j] == 100){
