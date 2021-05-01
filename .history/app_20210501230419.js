@@ -528,12 +528,12 @@ function updateGhostPosition() {
 			initialGhosts(board);
 			// pacman_remain--;
 			ghostMetPacman=true;
-			// if(PacmanMetghost==false){
-			catchPacman();				
-			// }
-			// else{
-			ghostMetPacman=false;
-			// }
+			if(PacmanMetghost==false){
+				catchPacman();				
+			}
+			else{
+				ghostMetPacman=false;
+			}
 			break;
 
 		}

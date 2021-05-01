@@ -528,12 +528,12 @@ function updateGhostPosition() {
 			initialGhosts(board);
 			// pacman_remain--;
 			ghostMetPacman=true;
-			// if(PacmanMetghost==false){
-			catchPacman();				
-			// }
-			// else{
-			ghostMetPacman=false;
-			// }
+			if(PacmanMetghost==false){
+				catchPacman();				
+			}
+			else{
+				ghostMetPacman=false;
+			}
 			break;
 
 		}
@@ -610,7 +610,7 @@ function UpdatePosition() {
 		for(var x=0 ; x< ghosts_amount ; x++){
 			board[listOfGhost[x].col][listOfGhost[x].row] = listOfGhost[x].prev;
 		}
-		initialGhosts(board);
+		initialGhosts();
 		PacmanMetghost=true;
 		if(ghostMetPacman==false){
 			catchPacman();
