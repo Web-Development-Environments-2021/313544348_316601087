@@ -18,7 +18,7 @@ var boardLength = 15;
 var ghostPositions = [[0,0], [0,boardLength-1], [boardLength-1,0], [boardLength-1,boardLength-1]];
 var userName;
 var ghosts_amount=4;
-var notValidMove = [4, 6, 7 , 8, 9, 100 , 200 , 300];
+var notValidMove = [4, 6, 7 , 8, 9, 100, 300];
 var notValidMoveG = [4, 6, 7 , 8, 9, 50];
 var keyboardDiraction = 4;
 var lifes;

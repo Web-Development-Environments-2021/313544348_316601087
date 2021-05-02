@@ -8,7 +8,6 @@ var start_time;
 var time_elapsed;
 var interval;
 var ghostInterval;
-var strawInterval;
 var listOfUsers = [['k','k']];
 var leftArrow = 37;
 var rightArrow = 39;
@@ -18,7 +17,7 @@ var boardLength = 15;
 var ghostPositions = [[0,0], [0,boardLength-1], [boardLength-1,0], [boardLength-1,boardLength-1]];
 var userName;
 var ghosts_amount=4;
-var notValidMove = [4, 6, 7 , 8, 9, 100 , 200 , 300];
+var notValidMove = [4, 6, 7 , 8, 9];
 var notValidMoveG = [4, 6, 7 , 8, 9, 50];
 var keyboardDiraction = 4;
 var lifes;
@@ -197,8 +196,6 @@ function Start() {
 	lifes = 5;
 	board = new Array();
 	score = 0;
-	strawMetPacman= false;
-	PacmanMetstraw= false;
 	pac_color = "yellow";
 	var cnt = 100;
 	var food_5_points_remain = Math.floor(food_remain * 0.6);//5 in board
@@ -387,7 +384,7 @@ function updateStrawPosition(){
 		if(PacmanMetstraw==false){
 			score = score + 50;
 			foodToEat--;
-			if(focreStrawberry.prev != 0 && focreStrawberry.prev != 2){
+			if(focreStrawberry.prev != 0){
 				foodToEat--;
 				score = score + focreStrawberry.prev;
 				focreStrawberry.prev = 0;
@@ -396,9 +393,9 @@ function updateStrawPosition(){
 			// board[shape.i][shape.j] = 0;
 			window.clearInterval(strawInterval);
 		}
-		// else{
-		// 	strawMetPacman=false;
-		// }
+		else{
+			strawMetPacman=false;
+		}
 
 		// var cell = board[focreStrawberry.col][focreStrawberry.row];
 		// if(cell==5 || cell==15 || cell==25){
@@ -415,8 +412,8 @@ function updateStrawPosition(){
 		// window.clearInterval(strawInterval);
 	}
 	else{
-		// strawMetPacman=false;
-		// focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change
+		strawMetPacman=false;
+		focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change
 		board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.id;
 	}
 	
@@ -662,9 +659,9 @@ function UpdatePosition() {
 		window.clearInterval(strawInterval);
 	}
 
-	// else{
-	// 	PacmanMetstraw=false;
-	// }
+	else{
+		PacmanMetstraw=false;
+	}
 		
 
 	//heart
@@ -1040,7 +1037,6 @@ function hideAllPages(){
     		music.currentTime = 0;
 			window.clearInterval(interval);
 			window.clearInterval(ghostInterval);
-			window.clearInterval(strawInterval);
 		}
         pages[i].style.display = 'none';
     }
