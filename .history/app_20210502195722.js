@@ -19,7 +19,7 @@ var ghostPositions = [[0,0], [0,boardLength-1], [boardLength-1,0], [boardLength-
 var userName;
 var ghosts_amount=4;
 var notValidMove = [4, 6, 7 , 8, 9, 100 , 200 , 300];
-var notValidMoveG = [4, 6, 7 , 8, 9, 50, 100, 200, 300];
+var notValidMoveG = [4, 6, 7 , 8, 9, 50];
 var keyboardDiraction = 4;
 var lifes;
 var foodToEat;
@@ -180,7 +180,7 @@ function initialCandy(board){
 	board[emptyCell[0]][emptyCell[1]] = 200;
 	candy.col = emptyCell[0];
 	candy.row = emptyCell[1];
-	candy.id = 200;
+	candy.id = 100;
 	candy.prev = 0;
 }
 
@@ -299,10 +299,9 @@ function Start() {
 		},
 		false
 	);
-	strawInterval = setInterval(updateStrawPosition, 550);
 	interval = setInterval(UpdatePosition, 150);
 	ghostInterval = setInterval(updateGhostPosition, 550);
-	
+	strawInterval = setInterval(updateStrawPosition, 550);
 
 }
 
@@ -385,16 +384,16 @@ function updateStrawPosition(){
 
 	if(board[focreStrawberry.col][focreStrawberry.row] == 2){ //meet pacman
 		strawMetPacman=true;
-		score = score + 50;
-		foodToEat--;
-		// board[shape.i][shape.j] = 0;
-		if(focreStrawberry.prev != 0  && focreStrawberry.prev != 2){
+		if(PacmanMetstraw==false){
+			score = score + 50;
 			foodToEat--;
-			score = score + focreStrawberry.prev;
-			focreStrawberry.prev = 0;
+			if(focreStrawberry.prev != 0 && focreStrawberry.prev != 2){
+				foodToEat--;
+				score = score + focreStrawberry.prev;
+				focreStrawberry.prev = 0;
+			}
+			window.clearInterval(strawInterval);
 		}
-		window.clearInterval(strawInterval);
-		
 	}
 	else{
 		board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.id;
@@ -525,15 +524,7 @@ function updateGhostPosition() {
 		if(board[listOfGhost[m].col][listOfGhost[m].row] ==2){ 
 			// listOfGhost[m].prev = 0;
 			for(var x=0 ; x< ghosts_amount ; x++){
-				if(shape.i == listOfGhost[x].col && shape.j == listOfGhost[x].row){
-					if(listOfGhost[x].prev != 0 && listOfGhost[x].prev != 2){
-						score = score + listOfGhost[x].prev;
-						foodToEat--;
-					}
-				}
-				else{
-					board[listOfGhost[x].col][listOfGhost[x].row] = listOfGhost[x].prev;
-				}
+				board[listOfGhost[x].col][listOfGhost[x].row] = listOfGhost[x].prev;
 			}
 			initialGhosts(board);
 			// pacman_remain--;
@@ -618,15 +609,7 @@ function UpdatePosition() {
 	//ghost- take off one live and init the positions
 	if (board[shape.i][shape.j] == 6 || board[shape.i][shape.j] == 7 || board[shape.i][shape.j] == 8  || board[shape.i][shape.j] == 9) {
 		for(var x=0 ; x< ghosts_amount ; x++){
-			if(shape.i == listOfGhost[x].col && shape.j == listOfGhost[x].row){
-				if(listOfGhost[x].prev != 0){
-					score = score + listOfGhost[x].prev;
-					foodToEat--;
-				}
-			}
-			else{
-				board[listOfGhost[x].col][listOfGhost[x].row] = listOfGhost[x].prev;
-			}
+			board[listOfGhost[x].col][listOfGhost[x].row] = listOfGhost[x].prev;
 		}
 		initialGhosts(board);
 		PacmanMetghost=true;
@@ -643,16 +626,15 @@ function UpdatePosition() {
 	//straw 
 	if(board[shape.i][shape.j] == 50){
 		PacmanMetstraw=true;
-		if(strawMetPacman==false){
-			score = score + 50;
+		score = score + 50;
+		foodToEat--;
+		// board[shape.i][shape.j] = 0;
+		if(focreStrawberry.prev != 0){
 			foodToEat--;
-			if(focreStrawberry.prev != 0){
-				foodToEat--;
-				score = score + focreStrawberry.prev;
-				focreStrawberry.prev = 0;
-			}
-			window.clearInterval(strawInterval);
-		}	
+			score = score + focreStrawberry.prev;
+			focreStrawberry.prev = 0;
+		}
+		window.clearInterval(strawInterval);
 	}
 
 	// else{
@@ -855,7 +837,7 @@ function Draw() {
 		lifes--;
 		// showLife();
 		score=score-10;
-		board[shape.i][shape.j]= 0 ;
+		// board[shape.i][shape.j]= 0 ;
 		var emptyCell = findRandomEmptyCellPacman(board);	
 		board[emptyCell[0]][emptyCell[1]] = 2;
 		shape.i = emptyCell[0];

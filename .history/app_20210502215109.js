@@ -180,7 +180,7 @@ function initialCandy(board){
 	board[emptyCell[0]][emptyCell[1]] = 200;
 	candy.col = emptyCell[0];
 	candy.row = emptyCell[1];
-	candy.id = 200;
+	candy.id = 100;
 	candy.prev = 0;
 }
 
@@ -299,10 +299,9 @@ function Start() {
 		},
 		false
 	);
-	strawInterval = setInterval(updateStrawPosition, 550);
 	interval = setInterval(UpdatePosition, 150);
 	ghostInterval = setInterval(updateGhostPosition, 550);
-	
+	strawInterval = setInterval(updateStrawPosition, 550);
 
 }
 
@@ -385,16 +384,16 @@ function updateStrawPosition(){
 
 	if(board[focreStrawberry.col][focreStrawberry.row] == 2){ //meet pacman
 		strawMetPacman=true;
-		score = score + 50;
-		foodToEat--;
-		// board[shape.i][shape.j] = 0;
-		if(focreStrawberry.prev != 0  && focreStrawberry.prev != 2){
+		if(PacmanMetstraw==false){
+			score = score + 50;
 			foodToEat--;
-			score = score + focreStrawberry.prev;
-			focreStrawberry.prev = 0;
+			if(focreStrawberry.prev != 0 && focreStrawberry.prev != 2){
+				foodToEat--;
+				score = score + focreStrawberry.prev;
+				focreStrawberry.prev = 0;
+			}
+			window.clearInterval(strawInterval);
 		}
-		window.clearInterval(strawInterval);
-		
 	}
 	else{
 		board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.id;
@@ -643,16 +642,15 @@ function UpdatePosition() {
 	//straw 
 	if(board[shape.i][shape.j] == 50){
 		PacmanMetstraw=true;
-		if(strawMetPacman==false){
-			score = score + 50;
+		score = score + 50;
+		foodToEat--;
+		// board[shape.i][shape.j] = 0;
+		if(focreStrawberry.prev != 0){
 			foodToEat--;
-			if(focreStrawberry.prev != 0){
-				foodToEat--;
-				score = score + focreStrawberry.prev;
-				focreStrawberry.prev = 0;
-			}
-			window.clearInterval(strawInterval);
-		}	
+			score = score + focreStrawberry.prev;
+			focreStrawberry.prev = 0;
+		}
+		window.clearInterval(strawInterval);
 	}
 
 	// else{
@@ -703,7 +701,7 @@ function UpdatePosition() {
 		alert('Loser!');
 
 	}
-	else if(foodToEat <= 0){
+	else if(foodToEat <= 1){
 		music.pause();
 		window.clearInterval(interval);
 		window.clearInterval(ghostInterval);

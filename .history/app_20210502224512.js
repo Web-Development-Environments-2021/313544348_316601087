@@ -299,10 +299,9 @@ function Start() {
 		},
 		false
 	);
-	strawInterval = setInterval(updateStrawPosition, 550);
 	interval = setInterval(UpdatePosition, 150);
 	ghostInterval = setInterval(updateGhostPosition, 550);
-	
+	strawInterval = setInterval(updateStrawPosition, 550);
 
 }
 

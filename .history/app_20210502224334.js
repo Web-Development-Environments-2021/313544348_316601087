@@ -299,10 +299,9 @@ function Start() {
 		},
 		false
 	);
-	strawInterval = setInterval(updateStrawPosition, 550);
 	interval = setInterval(UpdatePosition, 150);
 	ghostInterval = setInterval(updateGhostPosition, 550);
-	
+	strawInterval = setInterval(updateStrawPosition, 550);
 
 }
 
@@ -388,13 +387,24 @@ function updateStrawPosition(){
 		score = score + 50;
 		foodToEat--;
 		// board[shape.i][shape.j] = 0;
-		if(focreStrawberry.prev != 0  && focreStrawberry.prev != 2){
+		if(focreStrawberry.prev != 0){
 			foodToEat--;
 			score = score + focreStrawberry.prev;
 			focreStrawberry.prev = 0;
 		}
 		window.clearInterval(strawInterval);
 		
+		PacmanMetstraw=true;
+		if(PacmanMetstraw==false){
+			score = score + 50;
+			foodToEat--;
+			if(focreStrawberry.prev != 0 && focreStrawberry.prev != 2){
+				foodToEat--;
+				score = score + focreStrawberry.prev;
+				focreStrawberry.prev = 0;
+			}
+			window.clearInterval(strawInterval);
+		}
 	}
 	else{
 		board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.id;
@@ -643,16 +653,15 @@ function UpdatePosition() {
 	//straw 
 	if(board[shape.i][shape.j] == 50){
 		PacmanMetstraw=true;
-		if(strawMetPacman==false){
-			score = score + 50;
+		score = score + 50;
+		foodToEat--;
+		// board[shape.i][shape.j] = 0;
+		if(focreStrawberry.prev != 0){
 			foodToEat--;
-			if(focreStrawberry.prev != 0){
-				foodToEat--;
-				score = score + focreStrawberry.prev;
-				focreStrawberry.prev = 0;
-			}
-			window.clearInterval(strawInterval);
-		}	
+			score = score + focreStrawberry.prev;
+			focreStrawberry.prev = 0;
+		}
+		window.clearInterval(strawInterval);
 	}
 
 	// else{
