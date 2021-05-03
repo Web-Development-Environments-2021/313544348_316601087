@@ -707,12 +707,11 @@ function UpdatePosition() {
 		if(score < 100){
 			alert('you are better then '+ score +' points!');
 		}
-		else{
+		else
 			winMusic.play();
 			winMusicIsOn=true;
 			setTimeout(function(){alert("Winner!!!")},100);
 		}
-	}
 
 }
 
