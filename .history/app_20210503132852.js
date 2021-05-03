@@ -1,3 +1,4 @@
+// var canvas = document.getElementById('canvas');v
 var context;
 var shape = new Object();
 var board;
@@ -662,7 +663,7 @@ function UpdatePosition() {
 			lifes--;
 		}
 		else{
-			// (num = 1;)
+			// (num = 0;)
 			lifes++;
 		}
 		foodToEat--;

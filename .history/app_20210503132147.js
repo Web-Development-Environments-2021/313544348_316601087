@@ -1,3 +1,4 @@
+// var canvas = document.getElementById('canvas');v
 var context;
 var shape = new Object();
 var board;
@@ -302,7 +303,7 @@ function Start() {
 		false
 	);
 	interval = setInterval(UpdatePosition, 150);
-	ghostInterval = setInterval(updateGhostPosition, 550);
+	ghostInterval = setInterval(updateGhostPosition, 1200);
 	strawInterval = setInterval(updateStrawPosition, 700);
 
 	
@@ -354,6 +355,7 @@ function GetKeyPressed() {
 //updates
 function updateStrawPosition(){
 	board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.prev;
+	// focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change 
 	var dir = getRandomDirS(focreStrawberry);
 	if(dir == 'left'){
 		focreStrawberry.prev = board[(focreStrawberry.col)-1][focreStrawberry.row];
@@ -389,6 +391,7 @@ function updateStrawPosition(){
 		strawMetPacman=true;
 		score = score + 50;
 		foodToEat--;
+		// board[shape.i][shape.j] = 0;
 		if(focreStrawberry.prev != 0  && focreStrawberry.prev != 2){
 			foodToEat--;
 			score = score + focreStrawberry.prev;
@@ -438,6 +441,7 @@ function getRandomDir(ghost){
 	var ghostRow = ghost.row;
 
 	var move = {};
+	// if (ghostRow > pacmanRow) {
 		if((ghostRow-1 >= 0) && validGhostNextMove(ghostCol, ghostRow-1)){
 			var manhattanDist = calcMdistance(pacmanRow, pacmanCol, ghostRow-1, ghostCol); //mo need to sent pacman
 			move['up'] = manhattanDist;
@@ -662,7 +666,7 @@ function UpdatePosition() {
 			lifes--;
 		}
 		else{
-			// (num = 1;)
+			// (num = 0;)
 			lifes++;
 		}
 		foodToEat--;

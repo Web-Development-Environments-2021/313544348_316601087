@@ -1,3 +1,4 @@
+// var canvas = document.getElementById('canvas');v
 var context;
 var shape = new Object();
 var board;
@@ -302,7 +303,7 @@ function Start() {
 		false
 	);
 	interval = setInterval(UpdatePosition, 150);
-	ghostInterval = setInterval(updateGhostPosition, 550);
+	ghostInterval = setInterval(updateGhostPosition, 1200);
 	strawInterval = setInterval(updateStrawPosition, 700);
 
 	
@@ -354,6 +355,7 @@ function GetKeyPressed() {
 //updates
 function updateStrawPosition(){
 	board[focreStrawberry.col][focreStrawberry.row] = focreStrawberry.prev;
+	// focreStrawberry.prev = board[focreStrawberry.col][focreStrawberry.row]; //make prev be the step before change 
 	var dir = getRandomDirS(focreStrawberry);
 	if(dir == 'left'){
 		focreStrawberry.prev = board[(focreStrawberry.col)-1][focreStrawberry.row];
@@ -389,6 +391,7 @@ function updateStrawPosition(){
 		strawMetPacman=true;
 		score = score + 50;
 		foodToEat--;
+		// board[shape.i][shape.j] = 0;
 		if(focreStrawberry.prev != 0  && focreStrawberry.prev != 2){
 			foodToEat--;
 			score = score + focreStrawberry.prev;
@@ -438,6 +441,7 @@ function getRandomDir(ghost){
 	var ghostRow = ghost.row;
 
 	var move = {};
+	// if (ghostRow > pacmanRow) {
 		if((ghostRow-1 >= 0) && validGhostNextMove(ghostCol, ghostRow-1)){
 			var manhattanDist = calcMdistance(pacmanRow, pacmanCol, ghostRow-1, ghostCol); //mo need to sent pacman
 			move['up'] = manhattanDist;
@@ -471,6 +475,7 @@ function getRandomDir(ghost){
 function calcMdistance(pRow , pCol, gRow, gCol){
 	var a = Math.abs(pRow - gRow);
 	var b = Math.abs(pCol - gCol);
+	// var sum = a+b;
 	var sum = a*a +b*b;
 	return sum;
 }
@@ -491,7 +496,8 @@ function validSnextMove(col, row, wantedDirection ,prevDirection){
 
 function updateGhostPosition() {
 	for(var m=0 ; m< ghosts_amount ; m++){
-		board[listOfGhost[m].col][listOfGhost[m].row] = listOfGhost[m].prev; 
+		board[listOfGhost[m].col][listOfGhost[m].row] = listOfGhost[m].prev;
+		// listOfGhost[m].prev = board[listOfGhost[m].col][listOfGhost[m].row]; //make prev be the step before change 
 
 		var dir = getRandomDir(listOfGhost[m]);
 		if(dir == 'left'){
@@ -521,6 +527,7 @@ function updateGhostPosition() {
 		
 		//if g meets pacman in the next step
 		if(board[listOfGhost[m].col][listOfGhost[m].row] ==2){ 
+			// listOfGhost[m].prev = 0;
 			for(var x=0 ; x< ghosts_amount ; x++){
 				if(shape.i == listOfGhost[x].col && shape.j == listOfGhost[x].row){
 					if(listOfGhost[x].prev != 0 && listOfGhost[x].prev != 2){
@@ -533,9 +540,14 @@ function updateGhostPosition() {
 				}
 			}
 			initialGhosts(board);
+			// pacman_remain--;
 			ghostMetPacman=true;
+			// if(PacmanMetghost==false){
 			catchPacman();				
+			// }
+			// else{
 			ghostMetPacman=false;
+			// }
 			break;
 
 		}
@@ -629,6 +641,7 @@ function UpdatePosition() {
 		else{
 			PacmanMetghost=false;
 		}
+		// return;
 	}	
 	
 	//straw 
@@ -645,28 +658,31 @@ function UpdatePosition() {
 			window.clearInterval(strawInterval);
 		}	
 	}
+
+	// else{
+	// 	PacmanMetstraw=false;
+	// }
 		
 
 	//heart
 	if(board[shape.i][shape.j] == 100){
 		lifes++;
+		// showLife();
+		// board[shape.i][shape.j] = 0;
 		foodToEat--;
 
 	}
 
 	//candy
 	if(board[shape.i][shape.j] == 200){
-		var num = Math.random();
-		if (num < 0.5){
-			// (num = 0;)
+		var num = Math.floor(Math.random() * 1);
+		if (num == 0){
 			lifes--;
 		}
 		else{
-			// (num = 1;)
 			lifes++;
 		}
 		foodToEat--;
-		
 	}
 	
 	//clock
@@ -811,6 +827,8 @@ function Draw() {
 				context.fill();
 			}
 	        else if (board[i][j] == 50) {
+				// context.shadowBlur = 5;
+				// context.shadowColor = "white";
 				context.drawImage(focreStrawberry.img, center.x-half_square, center.y-half_square ,square,square);
 			}
 			else if (board[i][j] == 100) {
@@ -836,6 +854,7 @@ function Draw() {
 
 	function catchPacman(){
 		lifes--;
+		// showLife();
 		score=score-10;
 		board[shape.i][shape.j]= 0 ;
 		var emptyCell = findRandomEmptyCellPacman(board);	
@@ -843,6 +862,7 @@ function Draw() {
 		shape.i = emptyCell[0];
 		shape.j = emptyCell[1];
 			
+		//pacman set
 	}
 	
 

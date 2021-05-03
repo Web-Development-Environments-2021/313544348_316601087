@@ -1,3 +1,4 @@
+// var canvas = document.getElementById('canvas');v
 var context;
 var shape = new Object();
 var board;

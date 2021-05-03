@@ -1,3 +1,4 @@
+// var canvas = document.getElementById('canvas');v
 var context;
 var shape = new Object();
 var board;
@@ -389,6 +390,7 @@ function updateStrawPosition(){
 		strawMetPacman=true;
 		score = score + 50;
 		foodToEat--;
+		// board[shape.i][shape.j] = 0;
 		if(focreStrawberry.prev != 0  && focreStrawberry.prev != 2){
 			foodToEat--;
 			score = score + focreStrawberry.prev;
@@ -438,6 +440,7 @@ function getRandomDir(ghost){
 	var ghostRow = ghost.row;
 
 	var move = {};
+	// if (ghostRow > pacmanRow) {
 		if((ghostRow-1 >= 0) && validGhostNextMove(ghostCol, ghostRow-1)){
 			var manhattanDist = calcMdistance(pacmanRow, pacmanCol, ghostRow-1, ghostCol); //mo need to sent pacman
 			move['up'] = manhattanDist;
@@ -662,7 +665,7 @@ function UpdatePosition() {
 			lifes--;
 		}
 		else{
-			// (num = 1;)
+			// (num = 0;)
 			lifes++;
 		}
 		foodToEat--;
